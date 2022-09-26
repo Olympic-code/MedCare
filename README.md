@@ -1,21 +1,19 @@
-# MedCare
+# MedCare ❤️‍🩹
 
-#Github:
-https://github.com/Olympic-code/MedCare
 
-#Frameworks:
+## Frameworks:
 	UWP e/ou WPF
 
-#Activity divisions:
+## Activity divisions:
 	Abi-Albom - front-end developer
 	Aquiles - fullstack developer/QA
 	Cristofer - fullstack developer
 	José Bruno - front-end developer
 	Matheus - fullstack developer
 
-#User stories:
+## User stories:
 	As a patient I want to see a board with my exams and appointments
 	As a health professional I want to see my board with exams and appointments
 
-#Project Manage Tool:
-	Jira
+## Project Manage Tool:
+	https://matheusc03lh0.atlassian.net/jira/software/projects/OLPO/boards/3?assignee=60a1c5d75d67f20069226cfb
