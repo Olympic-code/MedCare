@@ -16,4 +16,4 @@
 	As a health professional I want to see my board with exams and appointments
 
 ## Project Manage Tool:
-	https://matheusc03lh0.atlassian.net/jira/software/projects/OLPO/boards/3?assignee=60a1c5d75d67f20069226cfb
+	https://matheusc03lh0.atlassian.net/jira/software/projects/OLPO/boards/3
