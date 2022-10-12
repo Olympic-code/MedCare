@@ -1,0 +1,5 @@
+C:\Users\crist\source\repos\MedCare\MedCare\obj\Debug\MedCare.App.csproj.AssemblyReference.cache
+C:\Users\crist\source\repos\MedCare\MedCare\obj\Debug\MainWindow.g.cs
+C:\Users\crist\source\repos\MedCare\MedCare\obj\Debug\App.g.cs
+C:\Users\crist\source\repos\MedCare\MedCare\obj\Debug\MedCare.App_MarkupCompile.cache
+C:\Users\crist\source\repos\MedCare\MedCare\obj\Debug\MedCare.App_MarkupCompile.lref
