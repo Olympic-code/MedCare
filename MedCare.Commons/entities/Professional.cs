@@ -8,5 +8,6 @@ namespace MedCare.Commons.entities
 {
     public class Professional : AbstractProfessional
     {
+        public int ID { get; }
     }
 }
