@@ -78,3 +78,4 @@ C:\Users\crist\Source\Repos\MedCare\MedCare.Commons\obj\Debug\MedCare.Commons.cs
 C:\Users\crist\Source\Repos\MedCare\MedCare.Commons\obj\Debug\MedCare.Commons.csproj.CopyComplete
 C:\Users\crist\Source\Repos\MedCare\MedCare.Commons\obj\Debug\MedCare.Commons.exe
 C:\Users\crist\Source\Repos\MedCare\MedCare.Commons\obj\Debug\MedCare.Commons.pdb
+C:\Users\crist\Source\Repos\MedCare\MedCare.Commons\obj\Debug\MedCare.Commons.csproj.AssemblyReference.cache

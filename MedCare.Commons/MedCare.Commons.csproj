@@ -171,14 +171,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\AbstractPatient.cs" />
-    <Compile Include="Entities\AbstractPerson.cs" />
-    <Compile Include="Entities\AbstractProfessional.cs" />
-    <Compile Include="Entities\AbstractUser.cs" />
-    <Compile Include="Entities\EnumPriority.cs" />
-    <Compile Include="Entities\EnumProcedureType.cs" />
-    <Compile Include="Entities\MedicalProcedures.cs" />
-    <Compile Include="Entities\Messages.cs" />
+    <Compile Include="entities\AbstractPatient.cs" />
+    <Compile Include="entities\AbstractPerson.cs" />
+    <Compile Include="entities\AbstractProfessional.cs" />
+    <Compile Include="entities\AbstractUser.cs" />
+    <Compile Include="entities\EnumPriority.cs" />
+    <Compile Include="entities\EnumProcedureType.cs" />
+    <Compile Include="entities\MedicalProcedures.cs" />
+    <Compile Include="entities\Messages.cs" />
+    <Compile Include="entities\Patient.cs" />
+    <Compile Include="entities\Professional.cs" />
+    <Compile Include="EnumUsefulStrings.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
