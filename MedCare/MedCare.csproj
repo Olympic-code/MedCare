@@ -34,6 +34,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -98,6 +99,20 @@
     <Folder Include="model\" />
     <Folder Include="viewModel\" />
     <Folder Include="view\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedCare.Commons\MedCare.Commons.csproj">
+      <Project>{76494ef4-f8e6-4754-9f22-32974a75bb8b}</Project>
+      <Name>MedCare.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedCare.Patient\MedCare.Patient.csproj">
+      <Project>{bf2a36cb-80d2-4387-a3aa-0529715f7f23}</Project>
+      <Name>MedCare.Patient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedCare.Professional\MedCare.Professional.csproj">
+      <Project>{6d9a4cec-fea3-447c-89c3-25160c9ab3fb}</Project>
+      <Name>MedCare.Professional</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
