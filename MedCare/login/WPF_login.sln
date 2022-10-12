@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedCare_login", "WPF_login\MedCare_login.csproj", "{0A3CDA51-D9A6-48CB-A57C-BDA67D871713}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A3CDA51-D9A6-48CB-A57C-BDA67D871713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3CDA51-D9A6-48CB-A57C-BDA67D871713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3CDA51-D9A6-48CB-A57C-BDA67D871713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3CDA51-D9A6-48CB-A57C-BDA67D871713}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {869B1EE7-4BA0-46A5-AABC-81C4D1DCE920}
+	EndGlobalSection
+EndGlobal
