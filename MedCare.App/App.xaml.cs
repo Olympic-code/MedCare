@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedCare.App.model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,10 @@ namespace MedCare.App
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+            DatabasesConfiguration.RunInitialConfiguration();
+        }
     }
 }
