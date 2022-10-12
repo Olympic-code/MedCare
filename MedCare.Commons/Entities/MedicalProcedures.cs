@@ -8,7 +8,7 @@ namespace MedCare.Commons.entities
 {
     public class MedicalProcedures
     {
-        public int ID { get; }
+        public int Id { get; set; }
         public string Description { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }

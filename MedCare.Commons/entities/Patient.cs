@@ -8,6 +8,6 @@ namespace MedCare.Commons.entities
 {
     public class Patient : AbstractPatient
     {
-        public int ID { get; }
+        public int Id { get; set; }
     }
 }
