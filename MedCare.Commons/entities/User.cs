@@ -5,12 +5,10 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedCare.Model
+namespace MedCare.Commons.entities
 {
-    public class User
+    public class User : AbstractUser
     {
         public int Id { get; set; }
-        public string Email { get; set; }
-        public SecureString Password { get; set; }
     }
 }

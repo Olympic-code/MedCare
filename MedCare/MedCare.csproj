@@ -231,7 +231,6 @@
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\DatabasesConfiguration.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelCommand.cs" />
     <Compile Include="ViewModel\ViewModelLogin.cs" />

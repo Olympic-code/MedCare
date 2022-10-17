@@ -221,6 +221,7 @@
     <Compile Include="entities\Messages.cs" />
     <Compile Include="entities\Patient.cs" />
     <Compile Include="entities\Professional.cs" />
+    <Compile Include="entities\User.cs" />
     <Compile Include="EnumUsefulStrings.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
