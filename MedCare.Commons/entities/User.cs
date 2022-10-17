@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace MedCare.Commons.entities
 {
-    public abstract class AbstractUser : AbstractPerson
+    public class User : AbstractUser
     {
-        public string Email { get; set; }
-        public SecureString Password { get; set; }
+        public int Id { get; set; }
     }
 }
