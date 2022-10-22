@@ -8,7 +8,7 @@ using Windows.Storage;
 
 namespace MedCare.DB.Databases
 {
-    public class ProfessionalDatabase : DbContext
+    internal class ProfessionalDatabase : DbContext
     {
         public DbSet<Professional> Professionals { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlite($"DataSource={Path.Combine(ApplicationData.Current.LocalFolder.Path, EnumUsefulStrings.ProfessionalDatabase)}");
