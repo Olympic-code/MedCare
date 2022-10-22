@@ -27,6 +27,7 @@ namespace MedCare
         public MainWindow()
         {
             InitializeComponent();
+
             DataContext = new ViewModelLogin();
             DatabasesConfiguration.RunInitialConfiguration();
         }
