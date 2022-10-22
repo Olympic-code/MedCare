@@ -8,8 +8,8 @@ namespace MedCare.DB.Services
 {
     public interface IPatientRepository
     {
-        Task<bool> AddNewPatient(AbstractPatient newPatient);
-        Task<bool> RemovePatient(AbstractPatient patient);
-        Task<AbstractPatient> GetPatient(AbstractPatient patient);
+        Task<bool> AddNewPatient(Patient newPatient);
+        Task<bool> RemovePatient(Patient patient);
+        Task<Patient> GetPatient(Patient patient);
     }
 }

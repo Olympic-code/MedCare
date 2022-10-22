@@ -3,25 +3,25 @@ using MedCare.DB.Databases;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MedCare.DB.Services
 {
     public class ProfessionalRepository : IProfessionalRepository
     {
-        public async Task<bool> AddNewProfessional(AbstractProfessional newProfessional)
+        public async Task<bool> AddNewProfessional(Professional newProfessional)
         {
 
             using (var professionalDatabase = new ProfessionalDatabase())
             {
                 try
                 {
-                
-                   await professionalDatabase.Professionals.AddAsync((Professional)newProfessional);
+                   await professionalDatabase.Professionals.AddAsync(newProfessional);
                    await professionalDatabase.SaveChangesAsync();
 
                    return true;
-
                 }
                 catch (Exception)
                 {
@@ -31,32 +31,32 @@ namespace MedCare.DB.Services
             }
         }
 
-        public async Task<bool> GetProfessional(AbstractProfessional professional)
+        public async Task<Professional> GetProfessional(Professional professional)
         {
             using (var professionalDatabase = new ProfessionalDatabase())
             {
                 try
                 {
-                    await professionalDatabase.Professionals.FindAsync(professional);
-
-                    return true;
-
+                    List<Professional> allProfessionals = await GetAllProfessionals();
+                    Professional wantedProfessional = (allProfessionals.Where(p => p.Cpf.Equals(professional.Cpf))).First();
+                    return wantedProfessional;
                 }
                 catch (Exception)
                 {
-                    return false;
+                    return null;
                 }
 
             }
         }
 
-        public async Task<bool> RemoveProfessional(AbstractProfessional professional)
+        public async Task<bool> RemoveProfessional(Professional professional)
         {
             using (var professionalDatabase = new ProfessionalDatabase())
             {
                 try
                 {
-                    professionalDatabase.Remove(professional);
+                    Professional wantedProfessional = await GetProfessional(professional);
+                    professionalDatabase.Professionals.Remove(wantedProfessional);
                     await professionalDatabase.SaveChangesAsync();
 
                     return true;
@@ -68,6 +68,23 @@ namespace MedCare.DB.Services
                 }
 
             }
+        }
+
+        public async Task<List<Professional>> GetAllProfessionals()
+        {
+            using (var professionalDatabase = new ProfessionalDatabase())
+            {
+                try
+                {
+                    List<Professional> allProfessionals = await professionalDatabase.Professionals.ToListAsync<Professional>();
+                    return allProfessionals;
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+
         }
     }
 }

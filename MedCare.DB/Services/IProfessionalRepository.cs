@@ -8,8 +8,8 @@ namespace MedCare.DB.Services
 {
     public interface IProfessionalRepository
     {
-        Task<bool> AddNewProfessional(AbstractProfessional newProfessional);
-        Task<bool> RemoveProfessional(AbstractProfessional professional);
-        Task<bool> GetProfessional(AbstractProfessional professional);
+        Task<bool> AddNewProfessional(Professional newProfessional);
+        Task<bool> RemoveProfessional(Professional professional);
+        Task<Professional> GetProfessional(Professional professional);
     }
 }

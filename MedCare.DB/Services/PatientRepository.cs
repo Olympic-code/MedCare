@@ -3,19 +3,21 @@ using MedCare.DB.Databases;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace MedCare.DB.Services
 {
     public class PatientRepository : IPatientRepository
     {
-        public async Task<bool> AddNewPatient(AbstractPatient newPatient)
+        public async Task<bool> AddNewPatient(Patient newPatient)
         {
             using (var patientDatabase = new PatientDatabase())
             {
                 try
                 {
-                    await patientDatabase.AddAsync(newPatient);
+                    await patientDatabase.Patients.AddAsync((Patient)newPatient);
                     await patientDatabase.SaveChangesAsync();
 
                     return true; 
@@ -27,14 +29,15 @@ namespace MedCare.DB.Services
             }
         }
 
-        public async Task<AbstractPatient> GetPatient(AbstractPatient patient)
+        public async Task<Patient> GetPatient(Patient patient)
         {
             using (var patientDatabase = new PatientDatabase())
             {
                 try
                 {
-                   AbstractPatient returnPatient = await patientDatabase.Patients.FindAsync(patient);
-                   return returnPatient;
+                    List<Patient> allPatients = await GetAllPatients();
+                    Patient wantedPatient = (allPatients.Where(p => p.Cpf.Equals(patient.Cpf))).First();
+                    return wantedPatient;
                 }
                 catch (Exception)
                 {
@@ -43,13 +46,14 @@ namespace MedCare.DB.Services
             }
         }
 
-        public async Task<bool> RemovePatient(AbstractPatient patient)
+        public async Task<bool> RemovePatient(Patient patient)
         {
             using (var patientDatabase = new PatientDatabase())
             {
                 try
                 {
-                    patientDatabase.Remove(patient);
+                    Patient wantedPatient = await GetPatient(patient);
+                    patientDatabase.Patients.Remove(wantedPatient);
                     await patientDatabase.SaveChangesAsync();
 
                     return true;
@@ -60,5 +64,21 @@ namespace MedCare.DB.Services
                 }
             }
         }
-    }
+
+        public async Task<List<Patient>> GetAllPatients()
+        {
+            using (var patientDatabase = new PatientDatabase())
+            {
+                try
+                {
+                    List<Patient> allPatients = await patientDatabase.Patients.ToListAsync<Patient>();
+                    return allPatients;
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+        }
+}
 }
