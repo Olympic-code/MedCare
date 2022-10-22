@@ -230,7 +230,6 @@
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\DatabasesConfiguration.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelCommand.cs" />
     <Compile Include="ViewModel\ViewModelLogin.cs" />
@@ -278,12 +277,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\MedCare.Commons\MedCare.Commons.csproj">
-      <Project>{76494EF4-F8E6-4754-9F22-32974A75BB8B}</Project>
-      <Name>MedCare.Commons</Name>
-    </ProjectReference>
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\MedCare.Patient\MedCare.Patient.csproj">
       <Project>{BF2A36CB-80D2-4387-A3AA-0529715F7F23}</Project>
       <Name>MedCare.Patient</Name>
