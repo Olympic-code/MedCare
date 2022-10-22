@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace MedCare.Commons.entities
+namespace MedCare.Commons.Entities
 {
     public abstract class AbstractUser : AbstractPerson
     {
         public string Email { get; set; }
-        public SecureString Password { get; set; }
+        public String Password { get; set; }
     }
 }

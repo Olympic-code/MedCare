@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace MedCare.Commons
+namespace MedCare.Commons.Entities
 {
     public class EnumUsefulStrings
     {
-        private static string _patientDatabase = "patientDabase.db";
+        private static string _patientDatabase = "patientDatabase.db";
         public static string PatientDatabase { get => _patientDatabase; }
 
-        private static string _professionalDatabase = "professionalDabase.db";
+        private static string _professionalDatabase = "professionalDatabase.db";
         public static string ProfessionalDatabase { get => _professionalDatabase; }
     }
 }
