@@ -11,5 +11,6 @@ namespace MedCare.DB.Services
         Task<bool> AddNewProfessional(Professional newProfessional);
         Task<bool> RemoveProfessional(Professional professional);
         Task<Professional> GetProfessional(Professional professional);
+        Task<List<Professional>> GetAllProfessionals();
     }
 }

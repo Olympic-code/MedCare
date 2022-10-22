@@ -11,5 +11,6 @@ namespace MedCare.DB.Services
         Task<bool> AddNewPatient(Patient newPatient);
         Task<bool> RemovePatient(Patient patient);
         Task<Patient> GetPatient(Patient patient);
+        Task<List<Patient>> GetAllPatients();
     }
 }
