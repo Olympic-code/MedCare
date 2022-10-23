@@ -9,9 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedCare.Professional", "Med
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedCare", "MedCare\MedCare.csproj", "{5A8CFF75-105A-4DEB-B5CD-0404564919E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedCare.Commons", "MedCare.Commons\MedCare.Commons.csproj", "{8D2D8DF1-5C43-455D-8981-E499D46192A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedCare.Commons", "MedCare.Commons\MedCare.Commons.csproj", "{8D2D8DF1-5C43-455D-8981-E499D46192A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedCare.DB", "MedCare.DB\MedCare.DB.csproj", "{1B509A37-2E3E-4E08-AE0C-75AEB50EF957}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedCare.DB", "MedCare.DB\MedCare.DB.csproj", "{1B509A37-2E3E-4E08-AE0C-75AEB50EF957}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedCare.UnitTests", "MedCare.UnitTests\MedCare.UnitTests.csproj", "{9E68F024-8414-4675-8D2D-1CBFA1AEF015}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,18 @@ Global
 		{1B509A37-2E3E-4E08-AE0C-75AEB50EF957}.Release|x64.Build.0 = Release|Any CPU
 		{1B509A37-2E3E-4E08-AE0C-75AEB50EF957}.Release|x86.ActiveCfg = Release|Any CPU
 		{1B509A37-2E3E-4E08-AE0C-75AEB50EF957}.Release|x86.Build.0 = Release|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Debug|x64.Build.0 = Debug|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Debug|x86.Build.0 = Debug|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Release|x64.ActiveCfg = Release|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Release|x64.Build.0 = Release|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Release|x86.ActiveCfg = Release|Any CPU
+		{9E68F024-8414-4675-8D2D-1CBFA1AEF015}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

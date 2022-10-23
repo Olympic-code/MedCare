@@ -38,7 +38,7 @@ namespace MedCare.DB.Services
                 try
                 {
                     List<Professional> allProfessionals = await GetAllProfessionals();
-                    Professional wantedProfessional = (allProfessionals.Where(p => p.Cpf.Equals(professional.Cpf))).First();
+                    Professional wantedProfessional = (allProfessionals.Where(p => p.Email.Equals(professional.Email))).First();
                     return wantedProfessional;
                 }
                 catch (Exception)
