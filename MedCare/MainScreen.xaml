@@ -3,10 +3,59 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MedCare"
+        xmlns:customcontrols="clr-namespace:MedCare.CustomControls"
         mc:Ignorable="d"
-        Title="MainScreen" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="550" Width="800"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    
+    <Window.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}"></Style>
+    </Window.Resources>
+
+
+    <Grid Background="#FFDADADA">
+        <Border Margin="15" MinWidth="400" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="10" MaxWidth="800">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
+            </Border.Effect>
+            <StackPanel>
+                <TextBlock Text="Registro!" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
+                <Grid Margin="0 0 0 20">
+                    <Button Content="Paciente" HorizontalAlignment="Left"/>
+                    <Button Content="Profissional" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"/>
+                </Grid>
+
+
+                <TextBox materialDesign:HintAssist.Hint="Nome" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
+                <Grid Margin="0 0 0 20">
+                    <TextBox materialDesign:HintAssist.Hint="CPF" MaxLength="12" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="300" HorizontalAlignment="Left" TextChanged="TextBox_TextChanged"/>
+                    <TextBox materialDesign:HintAssist.Hint="Idade" MaxLength="2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="100" HorizontalAlignment="Center"/>
+                    <TextBox materialDesign:HintAssist.Hint="Telefone" MaxLength="11" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="300" HorizontalAlignment="Right"/>
+                </Grid>
+                <TextBox materialDesign:HintAssist.Hint="Email" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Password" MaxLength="12" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
+                <PasswordBox materialDesign:HintAssist.Hint="Confirm Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="0 5"/>
+                <Grid>
+                    <ComboBox materialDesign:HintAssist.Hint="Profissão:" Style="{StaticResource MaterialDesignFloatingHintComboBox}" HorizontalAlignment="Left" Width="300" >
+                    <ComboBoxItem>Odontologia</ComboBoxItem>
+                    <ComboBoxItem>Nutrologia</ComboBoxItem>
+                    <ComboBoxItem>Psicologia</ComboBoxItem>
+                    <ComboBoxItem>Psiquiatria</ComboBoxItem>
+                    <ComboBoxItem>Clinica Médica</ComboBoxItem>
+                </ComboBox>
+                    <TextBox materialDesign:HintAssist.Hint="Codigo Profissional" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="300" HorizontalAlignment="Right"/>
+                </Grid>
+                <Button Content="Register" Margin="0 20"/>
+               
+            </StackPanel>
+            
+            
+        </Border>
     </Grid>
 </Window>
