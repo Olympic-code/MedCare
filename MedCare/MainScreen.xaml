@@ -19,13 +19,13 @@
     </Window.Resources>
 
 
-    <Grid Background="#FFDADADA">
+    <Grid>
         <Border Margin="15" MinWidth="400" Background="White" VerticalAlignment="Center" Padding="30" CornerRadius="10" MaxWidth="800">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
-                <TextBlock Text="Registro!" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
+                <TextBlock Text="Registro" FontSize="30" FontWeight="Bold" Margin="0 0 0 20"/>
                 <Grid Margin="0 0 0 20">
                     <Button Content="Paciente" HorizontalAlignment="Left"/>
                     <Button Content="Profissional" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFlatButton}"/>
