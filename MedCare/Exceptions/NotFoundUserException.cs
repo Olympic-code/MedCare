@@ -8,9 +8,9 @@ namespace MedCare.Exceptions
 {
     public class NotFoundUserException : Exception
     {
-        //public NotFoundAccountException(string message) : base(message)
-        //{
-
-        //}
+        public NotFoundUserException (string message) : base(message)
+        {
+           
+        }
     }
 }

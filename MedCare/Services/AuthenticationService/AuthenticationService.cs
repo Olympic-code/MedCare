@@ -36,7 +36,7 @@ namespace MedCare.Services.AutheticationServices
                     return new Tuple<EnumUserType, int>(EnumUserType.PATIENT, patientResult.Id);
                 } else
                 {
-                    throw new IncorrectPasswordException();
+                    throw new IncorrectPasswordException("Incorrect password");
                 }
             }
 
@@ -54,11 +54,11 @@ namespace MedCare.Services.AutheticationServices
                     return new Tuple<EnumUserType, int>(EnumUserType.PROFESSIONAL, professionalResult.Id);
                 } else
                 {
-                    throw new IncorrectPasswordException();
+                    throw new IncorrectPasswordException("Incorrect password");
                 }
             }
 
-            throw new NotFoundUserException();
+            throw new NotFoundUserException("Not found user");
         }
 
     }
