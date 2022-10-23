@@ -265,10 +265,17 @@
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainScreen.xaml.cs">
+      <DependentUpon>MainScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="ViewModel\ViewModelCommand.cs" />
     <Compile Include="ViewModel\ViewModelLogin.cs" />
     <Page Include="CustomControls\BindablePasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
