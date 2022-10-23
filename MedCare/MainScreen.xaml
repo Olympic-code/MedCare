@@ -51,7 +51,7 @@
                 </ComboBox>
                     <TextBox materialDesign:HintAssist.Hint="Codigo Profissional" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 5" Width="300" HorizontalAlignment="Right"/>
                 </Grid>
-                <Button Content="Register" Margin="0 20"/>
+                <Button Content="Registrar" Margin="0 20"/>
                
             </StackPanel>
             
