@@ -36,7 +36,7 @@ namespace MedCare.DB.Services
                 try
                 {
                     List<Patient> allPatients = await GetAllPatients();
-                    Patient wantedPatient = (allPatients.Where(p => p.Cpf.Equals(patient.Cpf))).First();
+                    Patient wantedPatient = (allPatients.Where(p => p.Email.Equals(patient.Email))).First();
                     return wantedPatient;
                 }
                 catch (Exception)
