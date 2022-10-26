@@ -81,7 +81,7 @@
                 
                 </TextBlock>
 
-                <TextBox Margin="0,50,0,0" 
+                <TextBox Margin="0,25,0,0" 
                          x:Name="txtUsername"
                          Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" 
                          Width="300" FontSize="18" 
@@ -99,7 +99,7 @@
                               HorizontalAlignment="Left"
                     />
 
-                <Button  Margin="0,20,0,0" 
+                <Button  Margin="0,35,0,0" 
                          x:Name="loginBtn" 
                          Command="{Binding LoginCommand}" 
                          Style="{StaticResource MaterialDesignFlatMidBgButton}" 
