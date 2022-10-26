@@ -108,7 +108,7 @@
                          Width="300" 
                          materialDesign:ButtonAssist.CornerRadius="10" 
                          FontSize="18" 
-                         Content="LOG IN"/>
+                         Content="Entrar"/>
 
                 <Button Margin="0,20,0,0" 
                         x:Name="signupBtn" 
@@ -117,7 +117,7 @@
                         Height="53" 
                         Width="300" 
                         materialDesign:ButtonAssist.CornerRadius="10" 
-                        FontSize="18" Content="Create Account"/>
+                        FontSize="18" Content="Criar conta"/>
 
             </StackPanel>
 
