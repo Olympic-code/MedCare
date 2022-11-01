@@ -4,9 +4,9 @@ using System.Text;
 
 namespace MedCare.Commons.Entities
 {
-    public enum EnumProcedureType
+    public enum EnumUserType
     {
-        APPOINTMENT,
-        EXAM
+        PATIENT,
+        PROFESSIONAL
     }
 }

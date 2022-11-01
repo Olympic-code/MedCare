@@ -81,7 +81,7 @@
                 
                 </TextBlock>
 
-                <TextBox Margin="0,50,0,0" 
+                <TextBox Margin="0,25,0,0" 
                          x:Name="txtUsername"
                          Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" 
                          Width="300" FontSize="18" 
@@ -95,7 +95,11 @@
                     
                 </customcontrols:BindablePasswordBox>
 
-                <Button  Margin="0,20,0,0" 
+                <ToggleButton Margin="80,10,0,0"
+                              HorizontalAlignment="Left"
+                    />
+
+                <Button  Margin="0,35,0,0" 
                          x:Name="loginBtn" 
                          Command="{Binding LoginCommand}" 
                          Style="{StaticResource MaterialDesignFlatMidBgButton}" 
@@ -104,7 +108,7 @@
                          Width="300" 
                          materialDesign:ButtonAssist.CornerRadius="10" 
                          FontSize="18" 
-                         Content="LOG IN"/>
+                         Content="Entrar"/>
 
                 <Button Margin="0,20,0,0" 
                         x:Name="signupBtn" 
@@ -113,7 +117,7 @@
                         Height="53" 
                         Width="300" 
                         materialDesign:ButtonAssist.CornerRadius="10" 
-                        FontSize="18" Content="Create Account"/>
+                        FontSize="18" Content="Criar conta"/>
 
             </StackPanel>
 

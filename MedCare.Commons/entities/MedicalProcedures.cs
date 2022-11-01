@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace MedCare.Commons.entities
+namespace MedCare.Commons.Entities
 {
     public class MedicalProcedures
     {
@@ -14,6 +12,5 @@ namespace MedCare.Commons.entities
         public DateTime EndDate { get; set; }
         public EnumPriority Priority { get; set; }
         public EnumProcedureType Type { get; set; }
-
     }
 }

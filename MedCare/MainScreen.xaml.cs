@@ -10,19 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MedCare.Commons
+namespace MedCare
 {
     /// <summary>
-    /// Interação lógica para MainWindow.xam
+    /// Lógica interna para MainScreen.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainScreen : Window
     {
-        public MainWindow()
+        public MainScreen()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

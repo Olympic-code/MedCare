@@ -1,4 +1,8 @@
 ﻿using MaterialDesignThemes.Wpf;
+using MedCare.Commons.Entities;
+using MedCare.DB;
+using MedCare.DB.Databases;
+using MedCare.DB.Services;
 using MedCare.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -26,7 +30,9 @@ namespace MedCare
         public MainWindow()
         {
             InitializeComponent();
+
             DataContext = new ViewModelLogin();
+            DatabasesConfiguration.RunInitialConfiguration();
         }
 
         public bool IsDarkTheme { get; set; }
