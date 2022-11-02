@@ -1,5 +1,6 @@
 ﻿using MedCare.Commons.Entities;
 using MedCare.DB.Databases;
+using MedCare.DB.Factories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,16 @@ namespace MedCare.DB.Services
 {
     public class ProfessionalRepository : IProfessionalRepository
     {
+        public AbstractDatabaseFactory DatabaseFactory { get; set; }
+
+        public ProfessionalRepository(AbstractDatabaseFactory databaseFactory)
+        {
+            DatabaseFactory = databaseFactory;
+        }
+
         public async Task<bool> AddNewProfessional(Professional newProfessional)
         {
-
-            using (var professionalDatabase = new ProfessionalDatabase())
+            using (AbstractProfessionalDatabase professionalDatabase = (AbstractProfessionalDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -32,7 +39,7 @@ namespace MedCare.DB.Services
 
         public async Task<Professional> GetProfessional(Professional professional)
         {
-            using (var professionalDatabase = new ProfessionalDatabase())
+            using (AbstractProfessionalDatabase professionalDatabase = (AbstractProfessionalDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -50,7 +57,7 @@ namespace MedCare.DB.Services
 
         public async Task<bool> RemoveProfessional(Professional professional)
         {
-            using (var professionalDatabase = new ProfessionalDatabase())
+            using (AbstractProfessionalDatabase professionalDatabase = (AbstractProfessionalDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -71,7 +78,7 @@ namespace MedCare.DB.Services
 
         public async Task<List<Professional>> GetAllProfessionals()
         {
-            using (var professionalDatabase = new ProfessionalDatabase())
+            using (AbstractProfessionalDatabase professionalDatabase = (AbstractProfessionalDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -83,7 +90,6 @@ namespace MedCare.DB.Services
                     return null;
                 }
             }
-
         }
     }
 }

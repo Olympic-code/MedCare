@@ -1,5 +1,6 @@
 ﻿using MedCare.Commons.Entities;
 using MedCare.DB.Databases;
+using MedCare.DB.Factories;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,15 @@ namespace MedCare.DB.Services
 {
     public class PatientRepository : IPatientRepository
     {
+        public AbstractDatabaseFactory DatabaseFactory { get; set; }
+        public PatientRepository(AbstractDatabaseFactory databaseFactory)
+        {
+            DatabaseFactory = databaseFactory;
+        }
+
         public async Task<bool> AddNewPatient(Patient newPatient)
         {
-            using (var patientDatabase = new PatientDatabase())
+            using (AbstractPatientDatabase patientDatabase = (AbstractPatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -30,7 +37,7 @@ namespace MedCare.DB.Services
 
         public async Task<Patient> GetPatient(Patient patient)
         {
-            using (var patientDatabase = new PatientDatabase())
+            using (AbstractPatientDatabase patientDatabase = (AbstractPatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -47,7 +54,7 @@ namespace MedCare.DB.Services
 
         public async Task<bool> RemovePatient(Patient patient)
         {
-            using (var patientDatabase = new PatientDatabase())
+            using (AbstractPatientDatabase patientDatabase = (AbstractPatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -66,7 +73,7 @@ namespace MedCare.DB.Services
 
         public async Task<List<Patient>> GetAllPatients()
         {
-            using (var patientDatabase = new PatientDatabase())
+            using (AbstractPatientDatabase patientDatabase = (AbstractPatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
