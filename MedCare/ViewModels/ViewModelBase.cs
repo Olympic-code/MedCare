@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
-namespace MedCare.ViewModel
+namespace MedCare.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
@@ -15,6 +10,6 @@ namespace MedCare.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-       
+
     }
 }

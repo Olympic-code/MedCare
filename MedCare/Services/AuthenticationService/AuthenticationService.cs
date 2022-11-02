@@ -3,7 +3,6 @@ using MedCare.DB.Services;
 using MedCare.Exceptions;
 using MedCare.Services.AuthenticationServices;
 using System;
-using System.Security;
 using System.Threading.Tasks;
 
 namespace MedCare.Services.AutheticationServices
@@ -19,7 +18,7 @@ namespace MedCare.Services.AutheticationServices
             this.professionalRepository = new ProfessionalRepository();
         }
 
-        public async Task<Tuple<EnumUserType, int>> ValidateLogin (string email, String password)
+        public async Task<Tuple<EnumUserType, int>> ValidateLogin(string email, String password)
         {
 
             Patient patient = new Patient()
@@ -29,12 +28,13 @@ namespace MedCare.Services.AutheticationServices
             };
 
             Patient patientResult = await patientRepository.GetPatient(patient);
-            if(patientResult != null)
+            if (patientResult != null)
             {
-                if(patientResult.Password == password)
+                if (patientResult.Password == password)
                 {
                     return new Tuple<EnumUserType, int>(EnumUserType.PATIENT, patientResult.Id);
-                } else
+                }
+                else
                 {
                     throw new IncorrectPasswordException("Incorrect password");
                 }
@@ -52,7 +52,8 @@ namespace MedCare.Services.AutheticationServices
                 if (professionalResult.Password == password)
                 {
                     return new Tuple<EnumUserType, int>(EnumUserType.PROFESSIONAL, professionalResult.Id);
-                } else
+                }
+                else
                 {
                     throw new IncorrectPasswordException("Incorrect password");
                 }

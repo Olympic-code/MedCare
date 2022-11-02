@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using System.Xaml;
 
-namespace MedCare.ViewModel
+namespace MedCare.ViewModels
 {
     public class ViewModelLogin : ViewModelBase
     {
@@ -74,7 +69,7 @@ namespace MedCare.ViewModel
 
         private void ExecuteLoginCommand(object obj)
         {
-           //AutenticationUser
+            //AutenticationUser
         }
 
         private bool CanExecuteLoginCommand(object obj)
