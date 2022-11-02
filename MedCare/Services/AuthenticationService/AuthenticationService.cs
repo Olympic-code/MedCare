@@ -1,4 +1,5 @@
 ﻿using MedCare.Commons.Entities;
+using MedCare.DB.Factories;
 using MedCare.DB.Services;
 using MedCare.Exceptions;
 using MedCare.Services.AuthenticationServices;
@@ -15,8 +16,8 @@ namespace MedCare.Services.AutheticationServices
 
         public AuthenticationService()
         {
-            this.patientRepository = new PatientRepository();
-            this.professionalRepository = new ProfessionalRepository();
+            this.patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForTests));
+            this.professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForTests));
         }
         #endregion
 

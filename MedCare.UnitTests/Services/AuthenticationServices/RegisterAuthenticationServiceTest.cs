@@ -1,5 +1,6 @@
 ﻿using MedCare.Commons.Entities;
 using MedCare.DB;
+using MedCare.DB.Factories;
 using MedCare.DB.Services;
 using MedCare.Exceptions;
 using MedCare.Services.AuthenticationServices;
@@ -20,8 +21,8 @@ namespace MedCare.UnitTests.Services
         {
             DatabasesConfiguration.RunInitialConfiguration();
             authenticationService = new AuthenticationService();
-            patientRepository = new PatientRepository();
-            professionalRepository = new ProfessionalRepository();
+            patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForTests));
+            professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForTests));
         }
         #endregion
 

@@ -1,5 +1,6 @@
 ﻿using MedCare.Commons.Entities;
 using MedCare.DB;
+using MedCare.DB.Factories;
 using MedCare.DB.Services;
 using MedCare.Exceptions;
 using MedCare.Services.AuthenticationServices;
@@ -18,10 +19,10 @@ namespace MedCare.UnitTests.Services
 
         public LoginAuthenticationServiceTest()
         {
-            DatabasesConfiguration.RunInitialConfiguration();
+            DatabasesConfiguration.RunInitialConfigurationForTests();
             authenticationService = new AuthenticationService();
-            patientRepository = new PatientRepository();
-            professionalRepository = new ProfessionalRepository();
+            patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForTests));
+            professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForTests));
         }
         #endregion
 
@@ -32,17 +33,16 @@ namespace MedCare.UnitTests.Services
 
             try
             {
-                Patient inexistentPatient = new Patient();
                 await authenticationService.ValidateLogin("patient1@gmail.com", "123456");
                 Assert.True(false);
 
             }
-            catch (NotFoundUserException e)
+            catch (NotFoundUserException)
             {
                 Assert.True(true);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -65,12 +65,12 @@ namespace MedCare.UnitTests.Services
                 Assert.True(false);
 
             }
-            catch (IncorrectPasswordException e)
+            catch (IncorrectPasswordException)
             {
                 Assert.True(true);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -96,12 +96,12 @@ namespace MedCare.UnitTests.Services
                 Assert.True(true);
 
             }
-            catch (IncorrectPasswordException e)
+            catch (IncorrectPasswordException)
             {
                 Assert.True(false);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -119,17 +119,16 @@ namespace MedCare.UnitTests.Services
 
             try
             {
-                Professional inexistentProfessional = new Professional();
                 await authenticationService.ValidateLogin("professional1@gmail.com", "abcdef");
                 Assert.True(false);
 
             }
-            catch (NotFoundUserException e)
+            catch (NotFoundUserException)
             {
                 Assert.True(true);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -152,12 +151,12 @@ namespace MedCare.UnitTests.Services
                 Assert.True(false);
 
             }
-            catch (IncorrectPasswordException e)
+            catch (IncorrectPasswordException)
             {
                 Assert.True(true);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -183,12 +182,12 @@ namespace MedCare.UnitTests.Services
                 Assert.True(true);
 
             }
-            catch (IncorrectPasswordException e)
+            catch (IncorrectPasswordException)
             {
                 Assert.True(false);
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
