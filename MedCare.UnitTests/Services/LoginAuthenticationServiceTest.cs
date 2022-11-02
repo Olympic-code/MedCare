@@ -9,21 +9,23 @@ using Xunit;
 
 namespace MedCare.UnitTests.Services
 {
-    public class AuthenticationServiceTest : IDisposable
+    public class LoginAuthenticationServiceTest
     {
-
+        #region Attributes and Constructor
         private PatientRepository patientRepository;
         private ProfessionalRepository professionalRepository;
         private IAuthenticationService authenticationService;
 
-        public AuthenticationServiceTest()
+        public LoginAuthenticationServiceTest()
         {
             DatabasesConfiguration.RunInitialConfiguration();
             authenticationService = new AuthenticationService();
             patientRepository = new PatientRepository();
             professionalRepository = new ProfessionalRepository();
         }
+        #endregion
 
+        #region Patient Tests
         [Fact]
         public async void PatientLoginWithoutAnExistingAccount()
         {
@@ -33,7 +35,7 @@ namespace MedCare.UnitTests.Services
                 Patient inexistentPatient = new Patient();
                 await authenticationService.ValidateLogin("patient1@gmail.com", "123456");
                 Assert.True(false);
-                //throw new XunitException();
+
             }
             catch (NotFoundUserException e)
             {
@@ -50,18 +52,18 @@ namespace MedCare.UnitTests.Services
         [Fact]
         public async void PatientLoginWithAnIncorrectPassword()
         {
+            Patient patient = new Patient()
+            {
+                Email = "patient2@gmail.com",
+                Password = "123456"
+            };
 
             try
             {
-                Patient patient = new Patient()
-                {
-                    Email = "patient2@gmail.com",
-                    Password = "123456"
-                };
                 await patientRepository.AddNewPatient(patient);
                 await authenticationService.ValidateLogin("patient2@gmail.com", "654321");
-                await patientRepository.RemovePatient(patient);
                 Assert.True(false);
+
             }
             catch (IncorrectPasswordException e)
             {
@@ -72,24 +74,27 @@ namespace MedCare.UnitTests.Services
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
+            } finally
+            {
+                await patientRepository.RemovePatient(patient);
             }
         }
 
         [Fact]
         public async void PatientLoginWithAValidPassword()
         {
+            Patient patient = new Patient()
+            {
+                Email = "patient3@gmail.com",
+                Password = "123456"
+            };
 
             try
             {
-                Patient patient = new Patient()
-                {
-                    Email = "patient3@gmail.com",
-                    Password = "123456"
-                };
                 await patientRepository.AddNewPatient(patient);
                 await authenticationService.ValidateLogin("patient3@gmail.com", "123456");
-                await patientRepository.RemovePatient(patient);
                 Assert.True(true);
+
             }
             catch (IncorrectPasswordException e)
             {
@@ -100,9 +105,14 @@ namespace MedCare.UnitTests.Services
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
+            } finally
+            {
+                await patientRepository.RemovePatient(patient);
             }
         }
+        #endregion
 
+        #region Professional Tests
         [Fact]
         public async void ProfessionalLoginWithoutAnExistingAccount()
         {
@@ -112,7 +122,7 @@ namespace MedCare.UnitTests.Services
                 Professional inexistentProfessional = new Professional();
                 await authenticationService.ValidateLogin("professional1@gmail.com", "abcdef");
                 Assert.True(false);
-                //throw new XunitException();
+
             }
             catch (NotFoundUserException e)
             {
@@ -129,18 +139,18 @@ namespace MedCare.UnitTests.Services
         [Fact]
         public async void ProfessionalLoginWithAnIncorrectPassword()
         {
+            Professional professional = new Professional()
+            {
+                Email = "professional2@gmail.com",
+                Password = "abcdef"
+            };
 
             try
             {
-                Professional professional = new Professional()
-                {
-                    Email = "professional2@gmail.com",
-                    Password = "abcdef"
-                };
                 await professionalRepository.AddNewProfessional(professional);
                 await authenticationService.ValidateLogin("professional2@gmail.com", "fedcba");
-                await professionalRepository.RemoveProfessional(professional);
                 Assert.True(false);
+
             }
             catch (IncorrectPasswordException e)
             {
@@ -151,24 +161,27 @@ namespace MedCare.UnitTests.Services
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
+            } finally
+            {
+                await professionalRepository.RemoveProfessional(professional);
             }
         }
 
         [Fact]
         public async void ProfessionalLoginWithAValidPassword()
         {
+            Professional professional = new Professional()
+            {
+                Email = "professional3@gmail.com",
+                Password = "abcdef"
+            };
 
             try
             {
-                Professional professional = new Professional()
-                {
-                    Email = "professional3@gmail.com",
-                    Password = "abcdef"
-                };
                 await professionalRepository.AddNewProfessional(professional);
                 Tuple<EnumUserType, int> pResult = await authenticationService.ValidateLogin("professional3@gmail.com", "abcdef");
-                await professionalRepository.RemoveProfessional(professional);
                 Assert.True(true);
+
             }
             catch (IncorrectPasswordException e)
             {
@@ -179,13 +192,12 @@ namespace MedCare.UnitTests.Services
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
+            } finally
+            {
+                await professionalRepository.RemoveProfessional(professional);
             }
         }
-
-        public void Dispose()
-        {
-            //clear actions
-        }
+        #endregion
 
     }
 }

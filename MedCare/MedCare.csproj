@@ -265,8 +265,10 @@
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Exceptions\PasswordsAreNotEqualsException.cs" />
     <Compile Include="Exceptions\IncorrectPasswordException.cs" />
     <Compile Include="Exceptions\NotFoundUserException.cs" />
+    <Compile Include="Exceptions\UserAlreadyExistsException.cs" />
     <Compile Include="Services\AuthenticationService\AuthenticationService.cs" />
     <Compile Include="Services\AuthenticationService\IAuthenticationService.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
