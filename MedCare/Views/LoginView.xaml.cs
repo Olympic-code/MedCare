@@ -1,36 +1,19 @@
 ﻿using MaterialDesignThemes.Wpf;
-using MedCare.Commons.Entities;
 using MedCare.DB;
-using MedCare.DB.Databases;
-using MedCare.DB.Services;
-using MedCare.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MedCare.ViewModels;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xaml;
 
-namespace MedCare
+namespace MedCare.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginView : Window
     {
-        public MainWindow()
+        public LoginView()
         {
             InitializeComponent();
-
             DataContext = new ViewModelLogin();
             DatabasesConfiguration.RunInitialConfiguration();
         }
@@ -65,5 +48,6 @@ namespace MedCare
         {
             Application.Current.Shutdown();
         }
+
     }
 }

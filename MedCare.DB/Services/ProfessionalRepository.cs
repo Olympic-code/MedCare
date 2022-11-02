@@ -1,11 +1,10 @@
 ﻿using MedCare.Commons.Entities;
 using MedCare.DB.Databases;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MedCare.DB.Services
 {
@@ -18,10 +17,10 @@ namespace MedCare.DB.Services
             {
                 try
                 {
-                   await professionalDatabase.Professionals.AddAsync(newProfessional);
-                   await professionalDatabase.SaveChangesAsync();
+                    await professionalDatabase.Professionals.AddAsync(newProfessional);
+                    await professionalDatabase.SaveChangesAsync();
 
-                   return true;
+                    return true;
                 }
                 catch (Exception)
                 {

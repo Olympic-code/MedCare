@@ -1,9 +1,6 @@
 ﻿using MedCare.Commons.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Windows.Storage;
 
 namespace MedCare.DB.Databases

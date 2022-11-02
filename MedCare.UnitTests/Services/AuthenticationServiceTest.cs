@@ -6,7 +6,6 @@ using MedCare.Services.AuthenticationServices;
 using MedCare.Services.AutheticationServices;
 using System;
 using Xunit;
-using Xunit.Sdk;
 
 namespace MedCare.UnitTests.Services
 {
@@ -43,7 +42,7 @@ namespace MedCare.UnitTests.Services
             }
             catch (Exception e)
             {
-                Assert.True(false); 
+                Assert.True(false);
                 Console.WriteLine("Entity framework error!");
             }
         }
