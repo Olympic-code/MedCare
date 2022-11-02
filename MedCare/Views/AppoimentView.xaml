@@ -1,0 +1,105 @@
+﻿<Window x:Class="MedCare.Views.AppoimentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:MedCare.Views"
+        xmlns:customcontrols="clr-namespace:MedCare.CustomControls"
+        xmlns:viewmodels="clr-namespace:MedCare.ViewModels"
+        mc:Ignorable="d"
+        Title="AppoimentView" Height="550" Width="800"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="TextBoxStyle"
+               TargetType="{x:Type TextBox}"></Style>
+    </Window.Resources>
+
+    <Border Margin="50,75,50,32"
+                MinWidth="400"
+                Background="White"
+                VerticalAlignment="Center"
+                Padding="20"
+                CornerRadius="10"
+                MaxWidth="800"
+                Height="443" Width="700" >
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="20"
+                                  Color="LightGray"
+                                  ShadowDepth="0" />
+        </Border.Effect>
+        <StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="344*"/>
+                    <ColumnDefinition Width="267*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Consultas"
+                           FontSize="30"
+                           FontWeight="Bold"
+                           Margin="0,0,0,20" HorizontalAlignment="Left"/>
+                <materialDesign:PackIcon Kind="Heart" 
+                                         Height="40" 
+                                         Width="76" 
+                                         HorizontalAlignment="Right" 
+                                         Grid.Column="1" 
+                                         Margin="0,0,-14,0"/>
+            </Grid>
+            <Grid>
+                <Grid Background="green"
+                 Height="270" 
+                 Width="300"
+                 HorizontalAlignment="Left">
+
+                    <TextBlock Text="Consultas Feitas"
+                           FontSize="15"
+                           FontWeight="Bold"
+                           Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+
+                    <Grid Background="white"
+                      Height="40" 
+                      Width="200" Margin="47,44,53,186">
+
+                    </Grid>
+                </Grid>
+
+                
+                <Grid Background="pink"
+                 Height="270" 
+                 Width="300"
+                 HorizontalAlignment="Right">
+
+                    <TextBlock Text="Consultas Pendentes"
+                           FontSize="15"
+                           FontWeight="Bold"
+                           Margin="0,0,0,20" HorizontalAlignment="Center"/>
+
+
+
+                    <Grid Background="white"
+                          Height="40" 
+                          Width="200" Margin="47,44,53,186"
+                          >
+                    </Grid>
+               </Grid>
+               
+            </Grid>
+            
+    <Grid Height="96">
+        <Button Background="Transparent" 
+                        Margin="616,28,0,28" 
+                        Padding="0,0,0,0"
+                        Height="40" Width="40" 
+                        HorizontalAlignment="Left" 
+                        RenderTransformOrigin="11.76,9">
+            <materialDesign:PackIcon Kind="PlusCircle" Height="25" Width="19" Foreground ="Black"/>
+        </Button>
+    </Grid>
+    </StackPanel>
+   </Border>
+</Window>
