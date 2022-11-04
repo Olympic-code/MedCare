@@ -14,10 +14,10 @@ namespace MedCare.Services.AutheticationServices
         private IPatientRepository patientRepository;
         private IProfessionalRepository professionalRepository;
 
-        public AuthenticationService()
+        public AuthenticationService(EnumDatabaseTypes databaseType)
         {
-            this.patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForTests));
-            this.professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForTests));
+            this.patientRepository = new PatientRepository(new PatientDatabaseFactory(databaseType));
+            this.professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(databaseType));
         }
         #endregion
 

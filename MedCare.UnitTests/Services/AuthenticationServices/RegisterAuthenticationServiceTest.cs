@@ -20,7 +20,7 @@ namespace MedCare.UnitTests.Services
         public RegisterAuthenticationServiceTest()
         {
             DatabasesConfiguration.RunInitialConfiguration();
-            authenticationService = new AuthenticationService();
+            authenticationService = new AuthenticationService(EnumDatabaseTypes.ForTests);
             patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForTests));
             professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForTests));
         }
@@ -30,28 +30,16 @@ namespace MedCare.UnitTests.Services
         [Fact]
         public async void PatientRegisterWithUnequalPasswords()
         {
-            string email = "patient1@gmail.com";
+            string email = "patientregister@hotmail.com";
             try
             {
-                await authenticationService.ValidateRegistration(EnumUserType.PATIENT, "teste", "000", 18, 40028922, email, 
-                    "123456", "654321", "tester", "SA00");
-                Assert.True(false);
-
+                await Assert.ThrowsAsync<PasswordsAreNotEqualsException>(()
+                => authenticationService.ValidateRegistration(EnumUserType.PATIENT, "teste", "000", 18, 40028922,
+                    email, "123456", "654321", "tester", "SA00"));
             }
-            catch (PasswordsAreNotEqualsException e)
-            {
-                Assert.True(true);
-
-            }
-            catch (UserAlreadyExistsException e)
+            catch (Exception)
             {
                 Assert.True(false);
-
-            }
-            catch (Exception e)
-            {
-                Assert.True(false);
-                Console.WriteLine("Entity framework error!");
             }
             finally
             {
@@ -63,7 +51,7 @@ namespace MedCare.UnitTests.Services
         [Fact]
         public async void PatientRegisterWithAvailableEmail()
         {
-            string email = "patient2@gmail.com";
+            string email = "patientregister@hotmail.com";
             try
             {
                 await authenticationService.ValidateRegistration(EnumUserType.PATIENT, "teste", "000", 18, 40028922, email,
@@ -71,17 +59,7 @@ namespace MedCare.UnitTests.Services
                 Assert.True(true);
 
             }
-            catch (PasswordsAreNotEqualsException e)
-            {
-                Assert.True(false);
-
-            }
-            catch (UserAlreadyExistsException e)
-            {
-                Assert.True(false);
-
-            }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -95,31 +73,18 @@ namespace MedCare.UnitTests.Services
         [Fact]
         public async void PatientRegisterWithLinkedEmailToAnExistingUser()
         {
-            string email = "patient3@gmail.com";
+            string email = "patientregister@hotmail.com";
             Patient patient = new Patient() { Email = email };
-
             try
             {
                 await patientRepository.AddNewPatient(patient);
-                await authenticationService.ValidateRegistration(EnumUserType.PATIENT, "teste", "000", 18, 40028922, email,
-                    "123456", "123456", "tester", "SA00");
-                Assert.True(false);
-
+                await Assert.ThrowsAsync<UserAlreadyExistsException>(()
+                => authenticationService.ValidateRegistration(EnumUserType.PATIENT, "teste", "000", 18, 40028922,
+                    email, "123456", "123456", "tester", "SA00"));
             }
-            catch (PasswordsAreNotEqualsException e)
+            catch (Exception)
             {
                 Assert.True(false);
-
-            }
-            catch (UserAlreadyExistsException e)
-            {
-                Assert.True(true);
-
-            }
-            catch (Exception e)
-            {
-                Assert.True(false);
-                Console.WriteLine("Entity framework error!");
             }
             finally
             {
@@ -132,28 +97,16 @@ namespace MedCare.UnitTests.Services
         [Fact]
         public async void ProfessionalRegisterWithUnequalPasswords()
         {
-            string email = "professional1@gmail.com";
+            string email = "professionalregister@hotmail.com";
             try
             {
-                await authenticationService.ValidateRegistration(EnumUserType.PROFESSIONAL, "teste", "000", 18, 40028922, email,
-                    "123456", "654321", "tester", "SA00");
-                Assert.True(false);
-
+                await Assert.ThrowsAsync<PasswordsAreNotEqualsException>(()
+                => authenticationService.ValidateRegistration(EnumUserType.PROFESSIONAL, "teste", "000", 18, 40028922, 
+                email, "123456", "654321", "tester", "SA00"));
             }
-            catch (PasswordsAreNotEqualsException e)
-            {
-                Assert.True(true);
-
-            }
-            catch (UserAlreadyExistsException e)
+            catch (Exception)
             {
                 Assert.True(false);
-
-            }
-            catch (Exception e)
-            {
-                Assert.True(false);
-                Console.WriteLine("Entity framework error!");
             }
             finally
             {
@@ -165,25 +118,15 @@ namespace MedCare.UnitTests.Services
         [Fact]
         public async void ProfessionalRegisterWithAvailableEmail()
         {
-            string email = "professional2@gmail.com";
+            string email = "professionalregister@hotmail.com";
             try
             {
-                await authenticationService.ValidateRegistration(EnumUserType.PROFESSIONAL, "teste", "000", 18, 40028922, email,
-                    "123456", "123456", "tester", "SA00");
+                await authenticationService.ValidateRegistration(EnumUserType.PROFESSIONAL, "teste", "000", 18, 40028922,
+                email, "123456", "123456", "tester", "SA00");
                 Assert.True(true);
 
             }
-            catch (PasswordsAreNotEqualsException e)
-            {
-                Assert.True(false);
-
-            }
-            catch (UserAlreadyExistsException e)
-            {
-                Assert.True(false);
-
-            }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -198,31 +141,18 @@ namespace MedCare.UnitTests.Services
         [Fact]
         public async void ProfessionalRegisterWithLinkedEmailToAnExistingUser()
         {
-            string email = "professional3@gmail.com";
+            string email = "professionalregister@hotmail.com";
             Professional professional = new Professional() { Email = email };
-
             try
             {
                 await professionalRepository.AddNewProfessional(professional);
-                await authenticationService.ValidateRegistration(EnumUserType.PROFESSIONAL, "teste", "000", 18, 40028922, email,
-                    "123456", "123456", "tester", "SA00");
-                Assert.True(false);
-
+                await Assert.ThrowsAsync<UserAlreadyExistsException>(()
+                => authenticationService.ValidateRegistration(EnumUserType.PROFESSIONAL, "teste", "000", 18, 40028922,
+                email, "123456", "123456", "tester", "SA00"));
             }
-            catch (PasswordsAreNotEqualsException e)
+            catch (Exception)
             {
                 Assert.True(false);
-
-            }
-            catch (UserAlreadyExistsException e)
-            {
-                Assert.True(true);
-
-            }
-            catch (Exception e)
-            {
-                Assert.True(false);
-                Console.WriteLine("Entity framework error!");
             }
             finally
             {

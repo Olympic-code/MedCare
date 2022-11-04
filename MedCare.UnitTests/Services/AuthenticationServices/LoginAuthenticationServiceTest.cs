@@ -6,6 +6,7 @@ using MedCare.Exceptions;
 using MedCare.Services.AuthenticationServices;
 using MedCare.Services.AutheticationServices;
 using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace MedCare.UnitTests.Services
@@ -20,7 +21,7 @@ namespace MedCare.UnitTests.Services
         public LoginAuthenticationServiceTest()
         {
             DatabasesConfiguration.RunInitialConfigurationForTests();
-            authenticationService = new AuthenticationService();
+            authenticationService = new AuthenticationService(EnumDatabaseTypes.ForTests);
             patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForTests));
             professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForTests));
         }
@@ -30,23 +31,8 @@ namespace MedCare.UnitTests.Services
         [Fact]
         public async void PatientLoginWithoutAnExistingAccount()
         {
-
-            try
-            {
-                await authenticationService.ValidateLogin("patient1@gmail.com", "123456");
-                Assert.True(false);
-
-            }
-            catch (NotFoundUserException)
-            {
-                Assert.True(true);
-
-            }
-            catch (Exception)
-            {
-                Assert.True(false);
-                Console.WriteLine("Entity framework error!");
-            }
+            await Assert.ThrowsAsync<NotFoundUserException>(() 
+                => authenticationService.ValidateLogin("patientlogin@hotmail.com", "123456"));
         }
 
         [Fact]
@@ -54,27 +40,20 @@ namespace MedCare.UnitTests.Services
         {
             Patient patient = new Patient()
             {
-                Email = "patient2@gmail.com",
+                Email = "patientlogin@hotmail.com",
                 Password = "123456"
             };
 
+            await patientRepository.AddNewPatient(patient);
             try
             {
-                await patientRepository.AddNewPatient(patient);
-                await authenticationService.ValidateLogin("patient2@gmail.com", "654321");
-                Assert.True(false);
-
-            }
-            catch (IncorrectPasswordException)
-            {
-                Assert.True(true);
-
-            }
-            catch (Exception)
+                await Assert.ThrowsAsync<IncorrectPasswordException>(()
+                => authenticationService.ValidateLogin("patientlogin@hotmail.com", "654321"));
+            } catch (Exception)
             {
                 Assert.True(false);
-                Console.WriteLine("Entity framework error!");
-            } finally
+            }
+            finally
             {
                 await patientRepository.RemovePatient(patient);
             }
@@ -85,14 +64,14 @@ namespace MedCare.UnitTests.Services
         {
             Patient patient = new Patient()
             {
-                Email = "patient3@gmail.com",
+                Email = "patientlogin@hotmail.com",
                 Password = "123456"
             };
 
             try
             {
                 await patientRepository.AddNewPatient(patient);
-                await authenticationService.ValidateLogin("patient3@gmail.com", "123456");
+                await authenticationService.ValidateLogin("patientlogin@hotmail.com", "123456");
                 Assert.True(true);
 
             }
@@ -116,23 +95,8 @@ namespace MedCare.UnitTests.Services
         [Fact]
         public async void ProfessionalLoginWithoutAnExistingAccount()
         {
-
-            try
-            {
-                await authenticationService.ValidateLogin("professional1@gmail.com", "abcdef");
-                Assert.True(false);
-
-            }
-            catch (NotFoundUserException)
-            {
-                Assert.True(true);
-
-            }
-            catch (Exception)
-            {
-                Assert.True(false);
-                Console.WriteLine("Entity framework error!");
-            }
+            await Assert.ThrowsAsync<NotFoundUserException>(()
+                => authenticationService.ValidateLogin("professionallogin@hotmail.com", "abcdef"));
         }
 
         [Fact]
@@ -140,27 +104,21 @@ namespace MedCare.UnitTests.Services
         {
             Professional professional = new Professional()
             {
-                Email = "professional2@gmail.com",
+                Email = "professionallogin@hotmail.com",
                 Password = "abcdef"
             };
 
+            await professionalRepository.AddNewProfessional(professional);
             try
             {
-                await professionalRepository.AddNewProfessional(professional);
-                await authenticationService.ValidateLogin("professional2@gmail.com", "fedcba");
-                Assert.True(false);
-
-            }
-            catch (IncorrectPasswordException)
-            {
-                Assert.True(true);
-
+                await Assert.ThrowsAsync<IncorrectPasswordException>(()
+                => authenticationService.ValidateLogin("professionallogin@hotmail.com", "fedcba"));
             }
             catch (Exception)
             {
                 Assert.True(false);
-                Console.WriteLine("Entity framework error!");
-            } finally
+            }
+            finally
             {
                 await professionalRepository.RemoveProfessional(professional);
             }
@@ -171,14 +129,14 @@ namespace MedCare.UnitTests.Services
         {
             Professional professional = new Professional()
             {
-                Email = "professional3@gmail.com",
+                Email = "professionallogin@hotmail.com",
                 Password = "abcdef"
             };
 
             try
             {
                 await professionalRepository.AddNewProfessional(professional);
-                Tuple<EnumUserType, int> pResult = await authenticationService.ValidateLogin("professional3@gmail.com", "abcdef");
+                Tuple<EnumUserType, int> pResult = await authenticationService.ValidateLogin("professionallogin@hotmail.com", "abcdef");
                 Assert.True(true);
 
             }

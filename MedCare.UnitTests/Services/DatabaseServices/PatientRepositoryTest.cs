@@ -4,7 +4,6 @@ using MedCare.DB.Factories;
 using MedCare.DB.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Xunit;
 
 namespace MedCare.UnitTests.Services.DatabaseServices
@@ -23,17 +22,16 @@ namespace MedCare.UnitTests.Services.DatabaseServices
 
         #region Create Users Tests
         [Fact]
-        public async void AddingNewPatient()
+        public async void CreateNewPatient()
         {
-            string email = "patient@gmail.com";
+            string email = "patientrepository@gmail.com";
             Patient patient = new Patient() { Email = email };
 
             try
             {
-                await patientRepository.AddNewPatient(patient);
-                Patient patientLocated = await patientRepository.GetPatient(patient);
+                bool addResult = await patientRepository.AddNewPatient(patient);
 
-                Assert.Equal(email, patientLocated.Email);
+                Assert.True(addResult);
 
             }
             catch (Exception)
@@ -44,33 +42,6 @@ namespace MedCare.UnitTests.Services.DatabaseServices
             finally
             {
                 await patientRepository.RemovePatient(patient);
-            }
-        }
-
-        [Fact]
-        public async void AddingNewPatientWithCredentialAlredyExists()
-        {
-            string email = "patient@gmail.com";
-            Patient patient = new Patient() { Email = email };
-            Patient patientTwo = new Patient() { Email = email };
-
-            try
-            {
-                await patientRepository.AddNewPatient(patient);
-                await patientRepository.AddNewPatient(patientTwo);
-
-                Assert.True(false);
-
-            }
-            catch (Exception)
-            {
-                Assert.True(true);
-                Console.WriteLine("Entity framework error!");
-            }
-            finally
-            {
-                await patientRepository.RemovePatient(patient);
-                await patientRepository.RemovePatient(patientTwo);
             }
         }
         #endregion
@@ -79,7 +50,7 @@ namespace MedCare.UnitTests.Services.DatabaseServices
         [Fact]
         public async void GetAnExistingPatient()
         {
-            string email = "patient@gmail.com";
+            string email = "patientrepository@gmail.com";
             Patient patient = new Patient() { Email = email };
 
             try
@@ -104,18 +75,18 @@ namespace MedCare.UnitTests.Services.DatabaseServices
         [Fact]
         public async void GetAnUnexistingPatient()
         {
-            string email = "patient@gmail.com";
+            string email = "patientrepository@gmail.com";
             Patient patient = new Patient() { Email = email };
             try
             {
                 Patient patientLocated = await patientRepository.GetPatient(patient);
 
-                Assert.True(false);
+                Assert.Null(patientLocated);
 
             }
             catch (Exception)
             {
-                Assert.True(true);
+                Assert.True(false);
                 Console.WriteLine("Entity framework error!");
             }
         }
@@ -148,7 +119,7 @@ namespace MedCare.UnitTests.Services.DatabaseServices
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    Patient patient = new Patient() { Email = "patient" + i + "@gmail.com" };
+                    Patient patient = new Patient() { Email = "patientrepository" + i + "@gmail.com" };
                     await patientRepository.AddNewPatient(patient);
                 }
 
@@ -157,7 +128,7 @@ namespace MedCare.UnitTests.Services.DatabaseServices
                 Assert.NotEmpty(allPatientsInDatabase);
                 Assert.Equal(10, allPatientsInDatabase.Count);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -166,7 +137,7 @@ namespace MedCare.UnitTests.Services.DatabaseServices
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    Patient patient = new Patient() { Email = "patient" + i + "@gmail.com" };
+                    Patient patient = new Patient() { Email = "patientrepository" + i + "@gmail.com" };
                     await patientRepository.RemovePatient(patient);
                 }
             }
@@ -180,17 +151,16 @@ namespace MedCare.UnitTests.Services.DatabaseServices
 
             try
             {
-                string email = "patient@gmail.com";
+                string email = "patientrepository@gmail.com";
                 Patient patient = new Patient() { Email = email };
                 await patientRepository.AddNewPatient(patient);
-                await patientRepository.RemovePatient(patient);
-                Patient patientLocated = await patientRepository.GetPatient(patient);
+                bool removeResult = await patientRepository.RemovePatient(patient);
 
-                Assert.True(false);
+                Assert.True(removeResult);
             }
             catch (Exception)
             {
-                Assert.True(true);
+                Assert.True(false);
                 Console.WriteLine("Entity framework error!");
             }
         }
@@ -201,15 +171,15 @@ namespace MedCare.UnitTests.Services.DatabaseServices
 
             try
             {
-                string email = "patient@gmail.com";
+                string email = "patientrepository@gmail.com";
                 Patient patient = new Patient() { Email = email };
-                await patientRepository.RemovePatient(patient);
+                bool removeResult = await patientRepository.RemovePatient(patient);
 
-                Assert.True(false);
+                Assert.False(removeResult);
             }
             catch (Exception)
             {
-                Assert.True(true);
+                Assert.True(false);
                 Console.WriteLine("Entity framework error!");
             }
         }

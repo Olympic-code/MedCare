@@ -25,52 +25,24 @@ namespace MedCare.UnitTests.Services.DatabaseServices
         [Fact]
         public async void AddingNewprofessional()
         {
-            string email = "professional@gmail.com";
+            string email = "professionalrepository@gmail.com";
             Professional professional = new Professional() { Email = email };
 
             try
             {
-                await professionalRepository.AddNewProfessional(professional);
-                Professional professionalLocated = await professionalRepository.GetProfessional(professional);
+                bool addResult = await professionalRepository.AddNewProfessional(professional);
 
-                Assert.Equal(email, professionalLocated.Email);
-
-            }
-            catch (Exception)
-            {
-                Assert.True(false);
-                Console.WriteLine("Entity framework error!");
-            }
-            finally
-            {
-                await professionalRepository.RemoveProfessional(professional);
-            }
-        }
-
-        [Fact]
-        public async void AddingNewprofessionalWithCredentialAlredyExists()
-        {
-            string email = "professional@gmail.com";
-            Professional professional = new Professional() { Email = email };
-            Professional professionalTwo = new Professional() { Email = email };
-
-            try
-            {
-                await professionalRepository.AddNewProfessional(professional);
-                await professionalRepository.AddNewProfessional(professionalTwo);
-
-                Assert.True(false);
+                Assert.True(addResult);
 
             }
             catch (Exception e)
             {
-                Assert.True(true);
+                Assert.True(false);
                 Console.WriteLine("Entity framework error!");
             }
             finally
             {
                 await professionalRepository.RemoveProfessional(professional);
-                await professionalRepository.RemoveProfessional(professionalTwo);
             }
         }
         #endregion
@@ -79,7 +51,7 @@ namespace MedCare.UnitTests.Services.DatabaseServices
         [Fact]
         public async void GetAnExistingprofessional()
         {
-            string email = "professional@gmail.com";
+            string email = "professionalrepository@gmail.com";
             Professional professional = new Professional() { Email = email };
 
             try
@@ -90,7 +62,7 @@ namespace MedCare.UnitTests.Services.DatabaseServices
                 Assert.Equal(email, professionalLocated.Email);
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -104,18 +76,18 @@ namespace MedCare.UnitTests.Services.DatabaseServices
         [Fact]
         public async void GetAnUnexistingprofessional()
         {
-            string email = "professional@gmail.com";
+            string email = "professionalrepository@gmail.com";
             Professional professional = new Professional() { Email = email };
             try
             {
                 Professional professionalLocated = await professionalRepository.GetProfessional(professional);
 
-                Assert.True(false);
+                Assert.Null(professionalLocated);
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Assert.True(true);
+                Assert.True(false);
                 Console.WriteLine("Entity framework error!");
             }
         }
@@ -133,7 +105,7 @@ namespace MedCare.UnitTests.Services.DatabaseServices
                 Assert.Empty(allprofessionalsInDatabase);
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -148,7 +120,7 @@ namespace MedCare.UnitTests.Services.DatabaseServices
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    Professional professional = new Professional() { Email = "professional" + i + "@gmail.com" };
+                    Professional professional = new Professional() { Email = "professionalrepository" + i + "@gmail.com" };
                     await professionalRepository.AddNewProfessional(professional);
                 }
 
@@ -157,7 +129,7 @@ namespace MedCare.UnitTests.Services.DatabaseServices
                 Assert.NotEmpty(allprofessionalsInDatabase);
                 Assert.Equal(10, allprofessionalsInDatabase.Count);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 Assert.True(false);
                 Console.WriteLine("Entity framework error!");
@@ -166,7 +138,7 @@ namespace MedCare.UnitTests.Services.DatabaseServices
             {
                 for (int i = 0; i < 10; i++)
                 {
-                    Professional professional = new Professional() { Email = "professional" + i + "@gmail.com" };
+                    Professional professional = new Professional() { Email = "professionalrepository" + i + "@gmail.com" };
                     await professionalRepository.RemoveProfessional(professional);
                 }
             }
@@ -180,17 +152,16 @@ namespace MedCare.UnitTests.Services.DatabaseServices
 
             try
             {
-                string email = "professional@gmail.com";
+                string email = "professionalrepository@gmail.com";
                 Professional professional = new Professional() { Email = email };
                 await professionalRepository.AddNewProfessional(professional);
-                await professionalRepository.RemoveProfessional(professional);
-                Professional professionalLocated = await professionalRepository.GetProfessional(professional);
+                bool removeResult = await professionalRepository.RemoveProfessional(professional);
 
-                Assert.True(false);
+                Assert.True(removeResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Assert.True(true);
+                Assert.True(false);
                 Console.WriteLine("Entity framework error!");
             }
         }
@@ -201,15 +172,15 @@ namespace MedCare.UnitTests.Services.DatabaseServices
 
             try
             {
-                string email = "professional@gmail.com";
+                string email = "professionalrepository@gmail.com";
                 Professional professional = new Professional() { Email = email };
-                await professionalRepository.RemoveProfessional(professional);
+                bool removeResult = await professionalRepository.RemoveProfessional(professional);
 
-                Assert.True(false);
+                Assert.False(removeResult);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Assert.True(true);
+                Assert.True(false);
                 Console.WriteLine("Entity framework error!");
             }
         }
