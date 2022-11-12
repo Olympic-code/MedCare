@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ColorBase3}">
+    Background="{ThemeResource ColorBasic3}">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -14,33 +14,83 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <RelativePanel Grid.Column="0">
-
+        <RelativePanel Grid.Column="0"
+                       Background="{ThemeResource ColorPrimary}">
             <StackPanel Orientation="Vertical"
                    RelativePanel.AlignHorizontalCenterWithPanel="True"
                    RelativePanel.AlignVerticalCenterWithPanel="True">
 
                 <Image Source="../Assets/Images/equipe-medica.png"
-                       MaxHeight="300"
-                       Margin="200 0 200 0"/>
+                       MaxHeight="200"
+                       Margin="150 0 150 0"/>
 
                 <TextBlock Text="Med Care"
                            Margin="0 100 0 0"
                            FontSize="50"
+                           FontWeight="Bold"
                            HorizontalAlignment="Center"/>
             </StackPanel>
         </RelativePanel>
 
-        <Grid Grid.Column="1">
-            <StackPanel Orientation="Vertical">
-                <TextBlock Text="Email"/>
-                <TextBox Width="100"
-                     Height="50"/>
-                <TextBlock Text="Senha"/>
-                <PasswordBox Width="100"
-                         Height="50"
-                         Margin="0 200 0 0"/>
+        <ScrollViewer Grid.Column="1"
+                      HorizontalAlignment="Center"
+                      FontFamily="Century Gothic"
+                      Foreground="{ThemeResource ColorBasic1}">
+            <StackPanel VerticalAlignment="Center">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0"
+                               Text="Login"
+                               FontSize="35"
+                               Margin="50"
+                               FontWeight="Bold"/>
+
+                    <TextBlock Grid.Row="1"
+                               Text="Email"
+                               FontSize="25"
+                               Margin="50 0 0 5"/>
+
+                    <TextBox Grid.Row="2"
+                             FontSize="15"
+                             Width="500"
+                             HorizontalAlignment="Left"
+                             Margin="50 0 50 20"
+                             BorderThickness="0 0 0 2"
+                             CornerRadius="5"
+                             Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             BorderBrush="{ThemeResource ColorPrimary}"/>
+
+                    <TextBlock Grid.Row="3"
+                               Text="Senha"
+                               FontSize="25"
+                               Margin="50 0 0 5"/>
+
+                    <PasswordBox Grid.Row="4"
+                                 FontSize="15"
+                                 Width="500"
+                                 HorizontalAlignment="Left"
+                                 Margin="50 0 50 20"
+                                 BorderThickness="0 0 0 2"
+                                 CornerRadius="5"
+                                 Password="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                 BorderBrush="{ThemeResource ColorPrimary}"/>
+
+                    <Button Grid.Row="5"
+                            Margin="50 0 0 0"
+                            Content="Entrar"
+                            FontSize="21"
+                            Click="{x:Bind ViewModel.ExecuteLoginCommand}"
+                            Background="{ThemeResource ColorPrimary}"
+                            CornerRadius="5"/>
+                </Grid>
             </StackPanel>
-        </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>

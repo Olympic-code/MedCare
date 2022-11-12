@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedCare.Application.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace MedCare.Application.Views
     /// </summary>
     public sealed partial class LoginView : Page
     {
+        public LoginViewModel ViewModel => (LoginViewModel)DataContext;
         public LoginView()
         {
             this.InitializeComponent();
