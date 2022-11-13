@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\MessageErrorVisibilityConverter.cs" />
     <Compile Include="Exceptions\IncorrectPasswordException.cs" />
     <Compile Include="Exceptions\NotFoundUserException.cs" />
     <Compile Include="Exceptions\PasswordsAreNotEqualsException.cs" />
@@ -146,6 +147,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\equipe-medica.png" />
+    <Content Include="Assets\Images\login.png" />
+    <Content Include="Assets\Images\user.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

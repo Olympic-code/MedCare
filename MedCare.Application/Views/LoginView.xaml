@@ -4,9 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MedCare.Application.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:converters="using:MedCare.Application.Converters" 
     mc:Ignorable="d"
     Background="{ThemeResource ColorBasic3}">
+
+    <Page.Resources>
+        <converters:MessageErrorVisibilityConverter x:Key="MessageErrorVisibilityConverter"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -45,6 +50,7 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0"
                                Text="Login"
@@ -64,8 +70,16 @@
                              Margin="50 0 50 20"
                              BorderThickness="0 0 0 2"
                              CornerRadius="5"
-                             Text="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                             BorderBrush="{ThemeResource ColorPrimary}"/>
+                             Text="{x:Bind ViewModel.UserEmail, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             BorderBrush="{ThemeResource ColorPrimary}">
+
+                        <TextBox.Background>
+                            <ImageBrush ImageSource="../Assets/Images/user.png"
+                                        Stretch="Uniform"                                       
+                                        AlignmentX="Left"/>
+                        </TextBox.Background>
+                        
+                    </TextBox>
 
                     <TextBlock Grid.Row="3"
                                Text="Senha"
@@ -76,19 +90,34 @@
                                  FontSize="15"
                                  Width="500"
                                  HorizontalAlignment="Left"
-                                 Margin="50 0 50 20"
+                                 Margin="50 0 50 0"
                                  BorderThickness="0 0 0 2"
                                  CornerRadius="5"
-                                 Password="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                 BorderBrush="{ThemeResource ColorPrimary}"/>
+                                 Password="{x:Bind ViewModel.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                 BorderBrush="{ThemeResource ColorPrimary}">
+                        
+                        <PasswordBox.Background>
+                            <ImageBrush ImageSource="../Assets/Images/login.png"
+                                        Stretch="Uniform"                                       
+                                        AlignmentX="Left"/>
+                        </PasswordBox.Background>
+                        
+                    </PasswordBox>
 
-                    <Button Grid.Row="5"
+                    <TextBlock Grid.Row="5"
+                               Margin="50 0 50 20"
+                               Text="{x:Bind ViewModel.ErrorMessage}" 
+                               Foreground="Red"
+                               Visibility="{x:Bind ViewModel.ErrorMessageIsVisible, Converter={StaticResource MessageErrorVisibilityConverter}}"/>
+
+                    <Button Grid.Row="6"
                             Margin="50 0 0 0"
+                            Padding="40 10 40 10"
                             Content="Entrar"
                             FontSize="21"
                             Click="{x:Bind ViewModel.ExecuteLoginCommand}"
                             Background="{ThemeResource ColorPrimary}"
-                            CornerRadius="5"/>
+                            CornerRadius="30"/>
                 </Grid>
             </StackPanel>
         </ScrollViewer>

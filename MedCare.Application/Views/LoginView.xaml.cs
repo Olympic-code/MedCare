@@ -1,4 +1,5 @@
 ﻿using MedCare.Application.ViewModels;
+using MedCare.DB;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,6 +28,7 @@ namespace MedCare.Application.Views
         public LoginView()
         {
             this.InitializeComponent();
+            DataContext = new LoginViewModel();
         }
     }
 }

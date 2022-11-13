@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MedCare.Application.Services.AuthenticationService;
+using MedCare.Commons.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
@@ -10,6 +12,7 @@ namespace MedCare.Application.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
+        private readonly IAuthenticationService authenticationService;
         #region Properties
 
         private string _userEmail;
@@ -24,8 +27,8 @@ namespace MedCare.Application.ViewModels
 
         }
 
-        private SecureString _password;
-        public SecureString Password
+        private string _password;
+        public string Password
         {
             get => _password;
             set
@@ -46,17 +49,48 @@ namespace MedCare.Application.ViewModels
             }
         }
 
+        private bool _errorMessageIsVisible;
+        public bool ErrorMessageIsVisible
+        {
+            get => _errorMessageIsVisible;
+            set
+            {
+                _errorMessageIsVisible = value;
+                OnPropertyChanged(nameof(ErrorMessageIsVisible));
+            }
+        }
+
+
         #endregion
 
         public LoginViewModel()
         {
-            
+            authenticationService = new AuthenticationService();
+            ErrorMessage = "*Email ou senha inválido";
+            ErrorMessageIsVisible = true;
         }
 
-        public void ExecuteLoginCommand()
+        public async void ExecuteLoginCommand()
         {
-            var email = UserEmail;
-            var password = Password;
+            ErrorMessageIsVisible = false;
+            try
+            {
+                Tuple<EnumUserType, int> isValidUser = await authenticationService.ValidateLogin(UserEmail, Password);
+                if (isValidUser.Item1 == EnumUserType.PATIENT)
+                {
+                    //call PATIENT screen
+                }
+                else
+                {
+                    //call professional screen
+                }
+            }
+            catch(Exception ex)
+            {
+                //Corrigir mensagem de erro
+                ErrorMessage = ex.Message;
+                ErrorMessageIsVisible = true;
+            }
         }
 
     }
