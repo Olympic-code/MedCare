@@ -157,6 +157,16 @@
       <Version>2.2.3</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MedCare.Commons\MedCare.Commons.csproj">
+      <Project>{8D2D8DF1-5C43-455D-8981-E499D46192A2}</Project>
+      <Name>MedCare.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MedCare.DB\MedCare.DB.csproj">
+      <Project>{1B509A37-2E3E-4E08-AE0C-75AEB50EF957}</Project>
+      <Name>MedCare.DB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

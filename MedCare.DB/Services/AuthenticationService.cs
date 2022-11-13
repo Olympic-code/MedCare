@@ -1,15 +1,12 @@
-﻿using MedCare.Application.Exceptions;
-using MedCare.Commons.Entities;
-using MedCare.DB.Services;
+﻿using MedCare.Commons.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedCare.Application.Services.AuthenticationService
+namespace MedCare.DB.Services
 {
-    public class AuthenticationService : IAuthenticationService
+    public class AuthenticationService
     {
         #region Attributes and Constructor
         private IPatientRepository patientRepository;
@@ -41,7 +38,7 @@ namespace MedCare.Application.Services.AuthenticationService
                 }
                 else
                 {
-                    throw new IncorrectPasswordException("Incorrect password");
+                    throw new Exception("Incorrect password");
                 }
             }
 
@@ -60,11 +57,11 @@ namespace MedCare.Application.Services.AuthenticationService
                 }
                 else
                 {
-                    throw new IncorrectPasswordException("Incorrect password");
+                    throw new Exception("Incorrect password");
                 }
             }
 
-            throw new NotFoundUserException("Not found user");
+            throw new Exception("Not found user");
         }
         #endregion
 
@@ -74,7 +71,7 @@ namespace MedCare.Application.Services.AuthenticationService
         {
             if (password != confirmPassword)
             {
-                throw new PasswordsAreNotEqualsException("Passwords are not equals");
+                throw new Exception("Passwords are not equals");
             }
 
             if (userType == EnumUserType.PATIENT)
@@ -103,7 +100,7 @@ namespace MedCare.Application.Services.AuthenticationService
             Patient patientResult = await patientRepository.GetPatient(patient);
             if (patientResult != null)
             {
-                throw new UserAlreadyExistsException("E-mail linked to an existing account");
+                throw new Exception("E-mail linked to an existing account");
             }
 
             await patientRepository.AddNewPatient(patient);
@@ -121,7 +118,7 @@ namespace MedCare.Application.Services.AuthenticationService
             Professional professionalResult = await professionalRepository.GetProfessional(professional);
             if (professionalResult != null)
             {
-                throw new UserAlreadyExistsException("E-mail linked to an existing account");
+                throw new Exception("E-mail linked to an existing account");
             }
 
             await professionalRepository.AddNewProfessional(professional);
