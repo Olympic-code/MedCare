@@ -58,8 +58,8 @@
                                Margin="50"
                                FontWeight="Bold"/>
 
-                    <TextBlock Grid.Row="1"
-                               Text="Email"
+                    <TextBlock x:Uid="EmailTextBlock"
+                               Grid.Row="1"
                                FontSize="25"
                                Margin="50 0 0 5"/>
 
@@ -71,18 +71,11 @@
                              BorderThickness="0 0 0 2"
                              CornerRadius="5"
                              Text="{x:Bind ViewModel.UserEmail, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                             BorderBrush="{ThemeResource ColorPrimary}">
+                             BorderBrush="{ThemeResource ColorPrimary}"
+                             Background="Transparent" />
 
-                        <TextBox.Background>
-                            <ImageBrush ImageSource="../Assets/Images/user.png"
-                                        Stretch="Uniform"                                       
-                                        AlignmentX="Left"/>
-                        </TextBox.Background>
-                        
-                    </TextBox>
-
-                    <TextBlock Grid.Row="3"
-                               Text="Senha"
+                    <TextBlock x:Uid="PasswordTextBlock"
+                               Grid.Row="3"
                                FontSize="25"
                                Margin="50 0 0 5"/>
 
@@ -90,19 +83,12 @@
                                  FontSize="15"
                                  Width="500"
                                  HorizontalAlignment="Left"
-                                 Margin="50 0 50 0"
+                                 Margin="50 0 50 20"
                                  BorderThickness="0 0 0 2"
                                  CornerRadius="5"
                                  Password="{x:Bind ViewModel.Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                 BorderBrush="{ThemeResource ColorPrimary}">
-                        
-                        <PasswordBox.Background>
-                            <ImageBrush ImageSource="../Assets/Images/login.png"
-                                        Stretch="Uniform"                                       
-                                        AlignmentX="Left"/>
-                        </PasswordBox.Background>
-                        
-                    </PasswordBox>
+                                 BorderBrush="{ThemeResource ColorPrimary}"
+                                 Background="Transparent" />
 
                     <TextBlock Grid.Row="5"
                                Margin="50 0 50 20"
@@ -110,10 +96,10 @@
                                Foreground="Red"
                                Visibility="{x:Bind ViewModel.ErrorMessageIsVisible, Converter={StaticResource MessageErrorVisibilityConverter}}"/>
 
-                    <Button Grid.Row="6"
+                    <Button x:Uid="LoginButton"
+                            Grid.Row="6"
                             Margin="50 0 0 0"
                             Padding="40 10 40 10"
-                            Content="Entrar"
                             FontSize="21"
                             Click="{x:Bind ViewModel.ExecuteLoginCommand}"
                             Background="{ThemeResource ColorPrimary}"

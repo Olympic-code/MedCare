@@ -147,8 +147,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\equipe-medica.png" />
-    <Content Include="Assets\Images\login.png" />
-    <Content Include="Assets\Images\user.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

@@ -66,8 +66,6 @@ namespace MedCare.Application.ViewModels
         public LoginViewModel()
         {
             authenticationService = new AuthenticationService();
-            ErrorMessage = "*Email ou senha inválido";
-            ErrorMessageIsVisible = true;
         }
 
         public async void ExecuteLoginCommand()
