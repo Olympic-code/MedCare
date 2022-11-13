@@ -1,0 +1,121 @@
+﻿<Page x:Class="MedCare.Application.Views.AppoimentsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:MedCare.Application.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Background="Transparent">
+    
+    <Grid Width="700" 
+          Height="450"
+          CornerRadius="10"
+          Background="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="HeaderGrid" 
+              Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" 
+                       Text="Title"
+                       x:Uid="AppoimentsFrameTitle"
+                       Foreground="Black"
+                       VerticalAlignment="Center"
+                       FontSize="50"
+                       Margin="5,0,0,0"/>
+            <TextBlock Grid.Column="0"
+                       x:Uid="ExamsFrameTitle"
+                       Foreground="Black"
+                       VerticalAlignment="Center"
+                       FontSize="50"
+                       Margin="5,0,0,0" />
+            <BitmapIcon 
+                UriSource="/Assets/Health_Icon.png"
+                Height="50"
+                HorizontalAlignment="Right"
+                Foreground="Black"
+                Grid.Column="1"/>
+        </Grid>
+        <Grid x:Name="MiddleGrid"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="CompleteAppoimentsGrid"
+                  Grid.Column="0"
+                  Background="#25D366" 
+                  CornerRadius="10"
+                  Margin="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
+                           Text="Complete"
+                           x:Uid="CompleteAppoimentsFrameTitle"
+                           Foreground="Black"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="30"
+                           Margin="5,0,0,0" />
+                <TextBlock Grid.Row="0"
+                           x:Uid="CompleteExamsFrameTitle"
+                           Foreground="Black"
+                           VerticalAlignment="Center"
+                           FontSize="30"
+                           Margin="5,0,0,0" />
+                <ListView Background="Transparent"
+                          Grid.Row="1">
+                </ListView>
+            </Grid>
+            <Grid x:Name="IncompleteAppoimentGrid"
+                  Grid.Column="1"
+                  Background="#FF7672"
+                  CornerRadius="10"
+                  Margin="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"
+                           Text="Incomplete"
+                           x:Uid="IncompleteAppoimentsFrameTitle"
+                           Foreground="Black"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="30"
+                           Margin="5,0,0,0" />
+                <TextBlock Grid.Row="0"
+                           x:Uid="IncompleteExamsFrameTitle"
+                           Foreground="Black"
+                           VerticalAlignment="Center"
+                           FontSize="30"
+                           Margin="5,0,0,0" />
+                <ListView Background="Transparent"
+                          Grid.Row="1">
+                </ListView>
+            </Grid>
+        </Grid>
+        <Grid x:Name="ButtomGrid"
+              Grid.Row="2">
+            <Button x:Name="AddNewAppoimentBtn"
+                    HorizontalAlignment="Right"
+                    Height="40"
+                    Margin="5"
+                    Padding="-2,0,-2,0"
+                    CornerRadius="10">
+                <BitmapIcon UriSource="/Assets/AddIcon.png"
+                            Foreground="Black"
+                            Height="35"
+                            />
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

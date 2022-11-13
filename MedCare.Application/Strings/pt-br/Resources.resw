@@ -120,6 +120,9 @@
   <data name="AgeTextBox.Text" xml:space="preserve">
     <value>Idade</value>
   </data>
+  <data name="AppoimentsFrameTitle.Text" xml:space="preserve">
+    <value>Consultas</value>
+  </data>
   <data name="ButtonSend.Text" xml:space="preserve">
     <value>Enviar</value>
   </data>
@@ -132,11 +135,26 @@
   <data name="ComboBoxProfessional.Text" xml:space="preserve">
     <value>Profissional</value>
   </data>
+  <data name="CompleteAppoimentsFrameTitle.Text" xml:space="preserve">
+    <value>Consultas Feitas</value>
+  </data>
+  <data name="CompleteExamsFrameTitle.Text" xml:space="preserve">
+    <value>Exames Feitos</value>
+  </data>
   <data name="CPFTextBox.Text" xml:space="preserve">
     <value>Cpf</value>
   </data>
   <data name="EmailTextBox.Text" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="ExamsFrameTitle.Text" xml:space="preserve">
+    <value>Exames</value>
+  </data>
+  <data name="IncompleteAppoimentsFrameTitle.Text" xml:space="preserve">
+    <value>Consultas não feitas</value>
+  </data>
+  <data name="IncompleteExamsFrameTitle.Text" xml:space="preserve">
+    <value>Exames não feitos</value>
   </data>
   <data name="JobCodeTextBox.Text" xml:space="preserve">
     <value>Código Profissional</value>
