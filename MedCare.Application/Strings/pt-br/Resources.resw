@@ -135,6 +135,9 @@
   <data name="CPFTextBox.Text" xml:space="preserve">
     <value>Cpf</value>
   </data>
+  <data name="EmailTextBlock.Text" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="EmailTextBox.Text" xml:space="preserve">
     <value>Email</value>
   </data>
@@ -144,11 +147,17 @@
   <data name="JobTextBox.Text" xml:space="preserve">
     <value>Profissão</value>
   </data>
+  <data name="LoginButton.Content" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
   <data name="NameTextBox.Text" xml:space="preserve">
     <value>Nome</value>
   </data>
   <data name="PasswordConfirmTextBox.Text" xml:space="preserve">
     <value>Confirme sua senha</value>
+  </data>
+  <data name="PasswordTextBlock.Text" xml:space="preserve">
+    <value>Senha</value>
   </data>
   <data name="PasswordTextBox.Text" xml:space="preserve">
     <value>Senha</value>
