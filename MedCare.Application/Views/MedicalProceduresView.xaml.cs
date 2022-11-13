@@ -21,13 +21,13 @@ namespace MedCare.Application.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AppoimentsView : Page
+    public sealed partial class MedicalProceduresView : Page
     {
-        public AppoimentsView()
+        public MedicalProceduresViewModel ViewModel => (MedicalProceduresViewModel)DataContext;
+        public MedicalProceduresView()
         {
             this.InitializeComponent();
-            DataContext = new AppoimentsViewModel();
-            
+            DataContext = new MedicalProceduresViewModel(Enums.MedicalProceduresViewState.EXAM);
         }
     }
 }
