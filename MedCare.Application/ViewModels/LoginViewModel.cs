@@ -77,7 +77,7 @@ namespace MedCare.Application.ViewModels
             try
             {
                 Tuple<EnumUserType, int> userInfomations = await authenticationService.ValidateLogin(UserEmail, Password);
-                screenControl.NavigateTo(userInfomations);
+                screenControl.NavigateToMainPage(userInfomations);
             }
             catch(Exception ex)
             {
