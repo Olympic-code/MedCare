@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace MedCare.DB.Services
 {
-    public interface IProfessionalRepository
+    public interface IProfessionalRepository : IRepository
     {
         Task<bool> AddNewProfessional(Professional newProfessional);
         Task<bool> RemoveProfessional(Professional professional);

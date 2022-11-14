@@ -13,6 +13,8 @@ namespace MedCare.Commons.Entities
         public DateTime EndDate { get; set; }
         public EnumPriority Priority { get; set; }
         public EnumProcedureType Type { get; set; }
+        public bool Done { get; set; }
+
 
     }
 }

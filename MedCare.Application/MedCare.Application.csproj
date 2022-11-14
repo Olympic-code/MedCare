@@ -119,10 +119,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Enums\MedicalProceduresViewState.cs" />
+    <Compile Include="Enums\SessionType.cs" />
     <Compile Include="Exceptions\IncorrectPasswordException.cs" />
     <Compile Include="Exceptions\NotFoundUserException.cs" />
     <Compile Include="Exceptions\PasswordsAreNotEqualsException.cs" />
+    <Compile Include="Exceptions\SessionHasAlreadyBeenInitialized.cs" />
     <Compile Include="Exceptions\UserAlreadyExistsException.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -130,9 +133,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AuthenticationService\AuthenticationService.cs" />
     <Compile Include="Services\AuthenticationService\IAuthenticationService.cs" />
+    <Compile Include="PopUps\UIInformationPopUp.cs" />
+    <Compile Include="PopUps\UIMedicalProcedurePopUp.cs" />
+    <Compile Include="SessionManager.cs" />
+    <Compile Include="Usercontrols\AddMedicalProcedureControl.xaml.cs">
+      <DependentUpon>AddMedicalProcedureControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\MedicalProceduresViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="ViewModels\ViewModelCommand.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\Base\ViewModelBase.cs" />
+    <Compile Include="ViewModels\Base\ViewModelCommand.cs" />
     <Compile Include="ViewModels\ViewModelLogin.cs" />
     <Compile Include="Views\MedicalProceduresView.xaml.cs">
       <DependentUpon>MedicalProceduresView.xaml</DependentUpon>
@@ -168,6 +178,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\RegistrationStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Usercontrols\AddMedicalProcedureControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

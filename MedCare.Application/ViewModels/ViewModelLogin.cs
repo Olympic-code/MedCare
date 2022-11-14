@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace MedCare.Application.ViewModels
 {
-    public class ViewModelLogin : ViewModelBase
+    public class ViewModelLogin : Base.ViewModelBase
     {
         //#region Properties
         //public ICommand LoginCommand { get; private set; }

@@ -86,5 +86,24 @@ namespace MedCare.DB.Services
                 }
             }
         }
+
+        public async Task<bool> AddProcedure(Patient patient, MedicalProcedures procedure)
+        {
+            using (AbstractPatientDatabase patientDatabase = (AbstractPatientDatabase)DatabaseFactory.CreateDatabase())
+            {
+                try
+                {
+                    Patient wantedPatient = await GetPatient(patient);
+                    await RemovePatient(wantedPatient);
+                    wantedPatient.MedicalAppointments.Add(procedure);
+                    await AddNewPatient(wantedPatient);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

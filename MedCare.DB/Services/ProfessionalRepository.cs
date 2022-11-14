@@ -91,5 +91,24 @@ namespace MedCare.DB.Services
                 }
             }
         }
+
+        public async Task<bool> AddProcedure(Professional professional, MedicalProcedures procedure)
+        {
+            using (AbstractProfessionalDatabase professionalDatabase = (AbstractProfessionalDatabase)DatabaseFactory.CreateDatabase())
+            {
+                try
+                {
+                    Professional wantedProfessional = await GetProfessional(professional);
+                    await RemoveProfessional(wantedProfessional);
+                    wantedProfessional.MedicalAppointments.Add(procedure);
+                    await AddNewProfessional(wantedProfessional);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

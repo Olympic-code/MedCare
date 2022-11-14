@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedCare.Application.ViewModels
+namespace MedCare.Application.ViewModels.Base
 {
     public class ViewModelBase : INotifyPropertyChanged
     {

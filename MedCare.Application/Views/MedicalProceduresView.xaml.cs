@@ -29,5 +29,13 @@ namespace MedCare.Application.Views
             this.InitializeComponent();
             DataContext = new MedicalProceduresViewModel(Enums.MedicalProceduresViewState.EXAM);
         }
+
+        private void AddNewAppoimentBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (AddMedicalProcedureControl.Visibility == Visibility.Visible)
+                AddMedicalProcedureControl.Visibility = Visibility.Collapsed;
+            else
+                AddMedicalProcedureControl.Visibility = Visibility.Visible;
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedCare.Application.Services.AuthenticationService
+namespace MedCare.Application.PopUps.AuthenticationService
 {
     public class AuthenticationService : IAuthenticationService
     {
@@ -69,7 +69,7 @@ namespace MedCare.Application.Services.AuthenticationService
         #endregion
 
         #region Validate Registration
-        public Task ValidateRegistration(EnumUserType userType, string name, string cpf, int age, int contactNumber,
+        public Task ValidateRegistration(EnumUserType userType, string name, string cpf, int age, string contactNumber,
             string email, String password, String confirmPassword, string profession, string professionalNumber)
         {
             if (password != confirmPassword)
@@ -88,7 +88,7 @@ namespace MedCare.Application.Services.AuthenticationService
 
         }
 
-        private async Task PatientRegistration(string name, string cpf, int age, int contactNumber, string email, String password)
+        private async Task PatientRegistration(string name, string cpf, int age, string contactNumber, string email, String password)
         {
             Patient patient = new Patient()
             {
@@ -109,7 +109,7 @@ namespace MedCare.Application.Services.AuthenticationService
             await patientRepository.AddNewPatient(patient);
         }
 
-        private async Task ProfessionalRegistration(string name, string cpf, int age, int contactNumber, string email,
+        private async Task ProfessionalRegistration(string name, string cpf, int age, string contactNumber, string email,
             String password, string profession, string professionalNumber)
         {
             Professional professional = new Professional()

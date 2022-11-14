@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace MedCare.DB.Services
 {
-    public interface IPatientRepository
+    public interface IPatientRepository : IRepository
     {
         Task<bool> AddNewPatient(Patient newPatient);
         Task<bool> RemovePatient(Patient patient);
