@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MedCare.Commons.Entities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,12 @@ namespace MedCare.Application
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var userInformations = (Tuple<EnumUserType, int>)e.Parameter;
+            //Call the other pages into mainPage frame.
         }
     }
 }

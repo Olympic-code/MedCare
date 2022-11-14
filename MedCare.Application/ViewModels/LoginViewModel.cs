@@ -1,4 +1,4 @@
-﻿using MedCare.Application.Services.AuthenticationService;
+﻿using MedCare.Application.Services;
 using MedCare.Commons.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,9 +12,13 @@ namespace MedCare.Application.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
+        #region Attributes
+        private readonly IScreenControl screenControl;
         private readonly IAuthenticationService authenticationService;
-        #region Properties
+        #endregion
 
+
+        #region Properties
         private string _userEmail;
         public string UserEmail
         {
@@ -59,12 +63,11 @@ namespace MedCare.Application.ViewModels
                 OnPropertyChanged(nameof(ErrorMessageIsVisible));
             }
         }
-
-
         #endregion
 
         public LoginViewModel()
         {
+            screenControl = new ScreenControl();
             authenticationService = new AuthenticationService();
         }
 
@@ -73,15 +76,8 @@ namespace MedCare.Application.ViewModels
             ErrorMessageIsVisible = false;
             try
             {
-                Tuple<EnumUserType, int> isValidUser = await authenticationService.ValidateLogin(UserEmail, Password);
-                if (isValidUser.Item1 == EnumUserType.PATIENT)
-                {
-                    //call PATIENT screen
-                }
-                else
-                {
-                    //call professional screen
-                }
+                Tuple<EnumUserType, int> userInfomations = await authenticationService.ValidateLogin(UserEmail, Password);
+                screenControl.NavigateTo(userInfomations);
             }
             catch(Exception ex)
             {
