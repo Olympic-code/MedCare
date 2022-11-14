@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MedCare.DB.Factories
+namespace MedCare.DB.Enums
 {
     public enum EnumDatabaseTypes
     {

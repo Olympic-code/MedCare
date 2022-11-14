@@ -1,7 +1,8 @@
 ﻿using MedCare.Application.PopUps;
 using MedCare.Commons.Entities;
-using MedCare.DB.Factories;
-using MedCare.DB.Services;
+using MedCare.DB;
+using MedCare.DB.Enums;
+using MedCare.DB.Repositories;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -63,7 +64,8 @@ namespace MedCare.Application.Usercontrols
         {
             ProfessionalRepository professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForImplementation));
             PatientRepository patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForImplementation));
-
+            DatabasesConfiguration.RunInitialConfiguration();
+            var listProfessionals = professionalRepository.GetAllProfessionals().Result;
             Professional professional = professionalRepository.GetProfessional(new Professional() { Email = ProfessionalEmail }).Result;
             Patient patient = patientRepository.GetPatient(new Patient() { Email = PatientEmail }).Result;
 

@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MedCare.DB.Factories
+namespace MedCare.DB.Enums
 {
     public class ProfessionalDatabaseFactory : AbstractDatabaseFactory
     {
@@ -18,7 +18,7 @@ namespace MedCare.DB.Factories
             if (_databaseType == EnumDatabaseTypes.ForImplementation)
                 return new ProfessionalDatabase();
            
-            return new ProfessionalDatabaseTest();
+            return null;
         }
     }
 }

@@ -1,13 +1,13 @@
 ﻿using MedCare.Commons.Entities;
 using MedCare.DB.Databases;
-using MedCare.DB.Factories;
+using MedCare.DB.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MedCare.DB.Services
+namespace MedCare.DB.Repositories
 {
     public class PatientRepository : IPatientRepository
     {
@@ -19,7 +19,7 @@ namespace MedCare.DB.Services
 
         public async Task<bool> AddNewPatient(Patient newPatient)
         {
-            using (AbstractPatientDatabase patientDatabase = (AbstractPatientDatabase)DatabaseFactory.CreateDatabase())
+            using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -37,7 +37,7 @@ namespace MedCare.DB.Services
 
         public async Task<Patient> GetPatient(Patient patient)
         {
-            using (AbstractPatientDatabase patientDatabase = (AbstractPatientDatabase)DatabaseFactory.CreateDatabase())
+            using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -54,7 +54,7 @@ namespace MedCare.DB.Services
 
         public async Task<bool> RemovePatient(Patient patient)
         {
-            using (AbstractPatientDatabase patientDatabase = (AbstractPatientDatabase)DatabaseFactory.CreateDatabase())
+            using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -73,7 +73,7 @@ namespace MedCare.DB.Services
 
         public async Task<List<Patient>> GetAllPatients()
         {
-            using (AbstractPatientDatabase patientDatabase = (AbstractPatientDatabase)DatabaseFactory.CreateDatabase())
+            using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -89,7 +89,7 @@ namespace MedCare.DB.Services
 
         public async Task<bool> AddProcedure(Patient patient, MedicalProcedures procedure)
         {
-            using (AbstractPatientDatabase patientDatabase = (AbstractPatientDatabase)DatabaseFactory.CreateDatabase())
+            using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {

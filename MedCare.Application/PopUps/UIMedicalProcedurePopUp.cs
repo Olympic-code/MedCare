@@ -1,8 +1,8 @@
 ﻿using MedCare.Application.Commands;
 using MedCare.Application.Enums;
 using MedCare.Commons.Entities;
-using MedCare.DB.Factories;
-using MedCare.DB.Services;
+using MedCare.DB.Enums;
+using MedCare.DB.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;

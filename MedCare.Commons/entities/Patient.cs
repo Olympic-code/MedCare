@@ -2,6 +2,6 @@
 {
     public class Patient : AbstractPatient
     {
-        public int Id { get; set; }
+        public int ID{ get; set; }
     }
 }

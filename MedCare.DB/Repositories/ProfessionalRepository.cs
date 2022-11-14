@@ -1,13 +1,13 @@
 ﻿using MedCare.Commons.Entities;
 using MedCare.DB.Databases;
-using MedCare.DB.Factories;
+using MedCare.DB.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MedCare.DB.Services
+namespace MedCare.DB.Repositories
 {
     public class ProfessionalRepository : IProfessionalRepository
     {
@@ -20,7 +20,7 @@ namespace MedCare.DB.Services
 
         public async Task<bool> AddNewProfessional(Professional newProfessional)
         {
-            using (AbstractProfessionalDatabase professionalDatabase = (AbstractProfessionalDatabase)DatabaseFactory.CreateDatabase())
+            using (ProfessionalDatabase professionalDatabase = (ProfessionalDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -39,7 +39,7 @@ namespace MedCare.DB.Services
 
         public async Task<Professional> GetProfessional(Professional professional)
         {
-            using (AbstractProfessionalDatabase professionalDatabase = (AbstractProfessionalDatabase)DatabaseFactory.CreateDatabase())
+            using (ProfessionalDatabase professionalDatabase = (ProfessionalDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -57,7 +57,7 @@ namespace MedCare.DB.Services
 
         public async Task<bool> RemoveProfessional(Professional professional)
         {
-            using (AbstractProfessionalDatabase professionalDatabase = (AbstractProfessionalDatabase)DatabaseFactory.CreateDatabase())
+            using (ProfessionalDatabase professionalDatabase = (ProfessionalDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -78,7 +78,7 @@ namespace MedCare.DB.Services
 
         public async Task<List<Professional>> GetAllProfessionals()
         {
-            using (AbstractProfessionalDatabase professionalDatabase = (AbstractProfessionalDatabase)DatabaseFactory.CreateDatabase())
+            using (ProfessionalDatabase professionalDatabase = (ProfessionalDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
@@ -94,7 +94,7 @@ namespace MedCare.DB.Services
 
         public async Task<bool> AddProcedure(Professional professional, MedicalProcedures procedure)
         {
-            using (AbstractProfessionalDatabase professionalDatabase = (AbstractProfessionalDatabase)DatabaseFactory.CreateDatabase())
+            using (ProfessionalDatabase professionalDatabase = (ProfessionalDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {

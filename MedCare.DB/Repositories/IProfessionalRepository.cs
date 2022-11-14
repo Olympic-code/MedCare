@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MedCare.DB.Services
+namespace MedCare.DB.Repositories
 {
     public interface IProfessionalRepository : IRepository
     {

@@ -1,6 +1,6 @@
 ﻿using MedCare.Application.Exceptions;
 using MedCare.Commons.Entities;
-using MedCare.DB.Services;
+using MedCare.DB.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +37,7 @@ namespace MedCare.Application.PopUps.AuthenticationService
             {
                 if (patientResult.Password == password)
                 {
-                    return new Tuple<EnumUserType, int>(EnumUserType.PATIENT, patientResult.Id);
+                    return new Tuple<EnumUserType, int>(EnumUserType.PATIENT, patientResult.ID);
                 }
                 else
                 {
@@ -56,7 +56,7 @@ namespace MedCare.Application.PopUps.AuthenticationService
             {
                 if (professionalResult.Password == password)
                 {
-                    return new Tuple<EnumUserType, int>(EnumUserType.PROFESSIONAL, professionalResult.Id);
+                    return new Tuple<EnumUserType, int>(EnumUserType.PROFESSIONAL, professionalResult.ID);
                 }
                 else
                 {
