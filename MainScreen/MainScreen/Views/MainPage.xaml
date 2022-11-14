@@ -5,14 +5,201 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Style="{StaticResource PageStyle}"
-    mc:Ignorable="d">
-    <Grid x:Name="ContentArea" Margin="{StaticResource MediumLeftRightMargin}">
-        <Grid
-            Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-            <!--
-                The SystemControlPageBackgroundChromeLowBrush background represents where you should place your content. 
-                Place your content here.
-            -->
+    mc:Ignorable="d"
+    Height="420"
+    Width="1400">
+
+    <Grid x:Name="ContentArea"
+          Background="Beige"
+          Margin="-70, -200,-41,-266">
+
+        <!-- Appointments Grid -->
+        <Grid x:Name="AppointmentsGrid"  
+              Height="220"
+              Width="630"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Margin="90, 150, 0, 0"
+              Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="22*"/>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="41*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                HorizontalAlignment="Left"
+                Foreground="Black"
+                Text="Consultas"
+                FontSize="36"
+                FontWeight="Bold"
+                Margin="20, 0, 0, 0"/>
+            <TextBlock
+                Grid.Row="1"
+                HorizontalAlignment="Left"
+                Foreground="Gray"
+                Text="Para essa semana" 
+                FontSize="13" 
+                FontWeight="Bold"
+                Margin="25, -5, 0, 0"/>
+            <SymbolIcon Symbol="Bullets" 
+                        HorizontalAlignment="Right"
+                        Height="47"
+                        Width="44" />
+            <Grid x:Name="AppointmentsListItemsGrid"
+                  Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Button
+                Grid.Row="3"
+                CornerRadius="10"
+                Margin="200,0,200,0"
+                Background="#3e6574"
+                Height="30" 
+                HorizontalAlignment="Stretch">
+                <TextBlock x:Uid="AppointmentsSeeDetails"/>
+            </Button>
         </Grid>
+
+
+        <!-- Exams Grid -->
+        <Grid x:Name="ExamsGrid"  
+              Height="220"
+              Width="630"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Margin="90, 430, 0, 0"
+              Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="22*"/>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="41*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                HorizontalAlignment="Left"
+                Foreground="Black"
+                Text="Exames"
+                FontSize="36"
+                FontWeight="Bold"
+                Margin="20, 0, 0, 0"/>
+            <TextBlock
+                Grid.Row="1"
+                HorizontalAlignment="Left"
+                Foreground="Gray"
+                Text="Para essa semana" 
+                FontSize="13" 
+                FontWeight="Bold"
+                Margin="25, -5, 0, 0"/>
+            <SymbolIcon Symbol="Calendar" 
+                        HorizontalAlignment="Right"
+                        Height="47"
+                        Width="44" />
+            <Grid x:Name="ExamsListItemsGrid"
+                  Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Button
+                Grid.Row="3"
+                CornerRadius="10"
+                Margin="200,0,200,0"
+                Background="#3e6574"
+                Height="30" 
+                HorizontalAlignment="Stretch">
+                <TextBlock x:Uid="ExamsSeeDetails"/>
+            </Button>
+        </Grid>
+
+        <!--Notifications Grid-->
+        <Grid x:Name="NotificationsGrid"
+              Height="500"
+              Width="600"
+              HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              Margin="790, 150, 0, 0"
+              Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="61*"/>
+                <RowDefinition Height="439*"/>
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                HorizontalAlignment="Center"
+                Foreground="Black"
+                Text="Notificações"
+                FontSize="36"
+                FontWeight="Bold"
+                Margin="20,0,0,0"/>
+            <SymbolIcon Symbol="Refresh" 
+                        HorizontalAlignment="Right"
+                        Height="47"
+                        Width="44" />
+            <Grid x:Name="AllNotificationsGrid"
+              Grid.Row="1"
+              Margin="70,30,70,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid x:Name="TasksCanceledSubgrid"
+                      Grid.Row="0"
+                      Background="#3e6574" 
+                      Margin="0,0,0,15"
+                      CornerRadius="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="43*" />
+                        <RowDefinition Height="60*" />
+                        <RowDefinition Height="60*" />
+                        <RowDefinition Height="60*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Cancelamentos" 
+                               Grid.Row="0"
+                               Margin="10,0,0,0">
+                    </TextBlock>
+                </Grid>
+                <Grid x:Name="TasksDoneSubgrid"
+                      Grid.Row="1"
+                      Background="#3e6574"
+                      Margin="0,0,0,15"
+                      CornerRadius="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="43*" />
+                        <RowDefinition Height="60*" />
+                        <RowDefinition Height="60*" />
+                        <RowDefinition Height="60*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Tarefas feitas"
+                               Grid.Row="0"
+                               Margin="10,0,0,0">
+                    </TextBlock>
+                </Grid>
+                <Grid x:Name="MessagesSubgrid"
+                      Grid.Row="2"
+                      Background="#3e6574"
+                      Margin="0,0,0,15"
+                      CornerRadius="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="43*" />
+                        <RowDefinition Height="65*" />
+                        <RowDefinition Height="65*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Mensagens" 
+                               Grid.Row="0" 
+                               Margin="10,0,0,0"/>
+                </Grid>
+            </Grid>
+        </Grid>
+
     </Grid>
 </Page>
