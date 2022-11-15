@@ -171,6 +171,9 @@
   <data name="JobText.Text" xml:space="preserve">
     <value>Profissão</value>
   </data>
+  <data name="LoginText.Content" xml:space="preserve">
+    <value>Entrar</value>
+  </data>
   <data name="MonthText.Text" xml:space="preserve">
     <value>Mês</value>
   </data>

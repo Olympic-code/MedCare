@@ -64,8 +64,8 @@ namespace MedCare.Application.Usercontrols
         {
             ProfessionalRepository professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForImplementation));
             PatientRepository patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForImplementation));
-            DatabasesConfiguration.RunInitialConfiguration();
-            var listProfessionals = professionalRepository.GetAllProfessionals().Result;
+            //DatabasesConfiguration.RunInitialConfiguration();
+            //var listProfessionals = professionalRepository.GetAllProfessionals().Result;
             Professional professional = professionalRepository.GetProfessional(new Professional() { Email = ProfessionalEmail }).Result;
             Patient patient = patientRepository.GetPatient(new Patient() { Email = PatientEmail }).Result;
 

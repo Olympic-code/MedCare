@@ -1,5 +1,6 @@
 ﻿using MedCare.Application.Exceptions;
 using MedCare.Commons.Entities;
+using MedCare.DB.Enums;
 using MedCare.DB.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,13 +13,13 @@ namespace MedCare.Application.Services
     public class AuthenticationService : IAuthenticationService
     {
         #region Attributes and Constructor
-        private IPatientRepository patientRepository;
-        private IProfessionalRepository professionalRepository;
+        private readonly IPatientRepository patientRepository;
+        private readonly IProfessionalRepository professionalRepository;
 
-        public AuthenticationService()
+        public AuthenticationService(EnumDatabaseTypes databaseType)
         {
-            //this.patientRepository = new PatientRepository();
-            //this.professionalRepository = new ProfessionalRepository();
+            this.patientRepository = new PatientRepository(new PatientDatabaseFactory(databaseType));
+            this.professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(databaseType));
         }
         #endregion
 
