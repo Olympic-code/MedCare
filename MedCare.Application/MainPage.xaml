@@ -8,7 +8,11 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
-    </Grid>
+    <Frame x:Name="ContentFrame" x:FieldModifier="public">
+        <TextBlock Text="This is Main Page!"
+                   FontSize="60"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+    </Frame>
+    
 </Page>
