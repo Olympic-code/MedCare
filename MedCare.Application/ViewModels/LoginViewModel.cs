@@ -1,4 +1,5 @@
 ﻿using MedCare.Application.Services;
+using MedCare.Application.ViewModels.Base;
 using MedCare.Commons.Entities;
 using System;
 using System.Collections.Generic;

@@ -23,16 +23,16 @@ namespace MedCare.DB
 
         public static async void RunInitialConfigurationForTests()
         {
-            using (var patientDatabase = new PatientDatabaseTest())
-            {
-                await patientDatabase.Database.EnsureCreatedAsync();
-                var patientDatabasePath = $"{Path.Combine(ApplicationData.Current.LocalFolder.Path, ("[TESTE]" + EnumUsefulStrings.PatientDatabase))}";
-            }
-            using (var professionalDatabase = new ProfessionalDatabaseTest())
-            {
-                await professionalDatabase.Database.EnsureCreatedAsync();
-                var professionalDatabasePath = $"{Path.Combine(ApplicationData.Current.LocalFolder.Path, ("[TESTE]" + EnumUsefulStrings.ProfessionalDatabase))}";
-            }
+        //    using (var patientDatabase = new PatientDatabaseTest())
+        //    {
+        //        await patientDatabase.Database.EnsureCreatedAsync();
+        //        var patientDatabasePath = $"{Path.Combine(ApplicationData.Current.LocalFolder.Path, ("[TESTE]" + EnumUsefulStrings.PatientDatabase))}";
+        //    }
+        //    using (var professionalDatabase = new ProfessionalDatabaseTest())
+        //    {
+        //        await professionalDatabase.Database.EnsureCreatedAsync();
+        //        var professionalDatabasePath = $"{Path.Combine(ApplicationData.Current.LocalFolder.Path, ("[TESTE]" + EnumUsefulStrings.ProfessionalDatabase))}";
+        //    }
         }
     }
 }

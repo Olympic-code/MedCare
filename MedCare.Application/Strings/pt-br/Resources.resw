@@ -117,52 +117,124 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AgeTextBox.Text" xml:space="preserve">
+  <data name="AddText.Text" xml:space="preserve">
+    <value>Adicionar</value>
+  </data>
+  <data name="AgeText.Text" xml:space="preserve">
     <value>Idade</value>
   </data>
-  <data name="ButtonSend.Text" xml:space="preserve">
+  <data name="AppoimentsFrameTitle.Text" xml:space="preserve">
+    <value>Consultas</value>
+  </data>
+  <data name="ButtonSendText.Text" xml:space="preserve">
     <value>Enviar</value>
   </data>
-  <data name="CellPhoneTextBox.Text" xml:space="preserve">
+  <data name="CellPhoneText.Text" xml:space="preserve">
     <value>Telefone</value>
   </data>
-  <data name="ComboBoxPatient.Text" xml:space="preserve">
-    <value>Paciente</value>
+  <data name="CompleteAppoimentsFrameTitle.Text" xml:space="preserve">
+    <value>Feitas</value>
   </data>
-  <data name="ComboBoxProfessional.Text" xml:space="preserve">
-    <value>Profissional</value>
+  <data name="CompleteExamsFrameTitle.Text" xml:space="preserve">
+    <value>Feitos</value>
   </data>
-  <data name="CPFTextBox.Text" xml:space="preserve">
+  <data name="CPFText.Text" xml:space="preserve">
     <value>Cpf</value>
   </data>
-  <data name="EmailTextBlock.Text" xml:space="preserve">
+  <data name="DayText.Text" xml:space="preserve">
+    <value>Dia</value>
+  </data>
+  <data name="DescriptionText.Text" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="DoneText.Text" xml:space="preserve">
+    <value>Feito</value>
+  </data>
+  <data name="EmailText.Text" xml:space="preserve">
     <value>Email</value>
   </data>
-  <data name="EmailTextBox.Text" xml:space="preserve">
-    <value>Email</value>
+  <data name="EndDateText.Text" xml:space="preserve">
+    <value>Data Final</value>
   </data>
-  <data name="JobCodeTextBox.Text" xml:space="preserve">
+  <data name="ExamsFrameTitle.Text" xml:space="preserve">
+    <value>Exames</value>
+  </data>
+  <data name="IncompleteAppoimentsFrameTitle.Text" xml:space="preserve">
+    <value>Não Feitas</value>
+  </data>
+  <data name="IncompleteExamsFrameTitle.Text" xml:space="preserve">
+    <value>Não Feitos</value>
+  </data>
+  <data name="JobCodeText.Text" xml:space="preserve">
     <value>Código Profissional</value>
   </data>
-  <data name="JobTextBox.Text" xml:space="preserve">
+  <data name="JobText.Text" xml:space="preserve">
     <value>Profissão</value>
   </data>
-  <data name="LoginButton.Content" xml:space="preserve">
+  <data name="LoginText.Content" xml:space="preserve">
     <value>Entrar</value>
   </data>
-  <data name="NameTextBox.Text" xml:space="preserve">
+  <data name="MonthText.Text" xml:space="preserve">
+    <value>Mês</value>
+  </data>
+  <data name="NameText.Text" xml:space="preserve">
     <value>Nome</value>
   </data>
-  <data name="PasswordConfirmTextBox.Text" xml:space="preserve">
+  <data name="PasswordConfirmText.Text" xml:space="preserve">
     <value>Confirme sua senha</value>
   </data>
-  <data name="PasswordTextBlock.Text" xml:space="preserve">
+  <data name="PasswordText.Text" xml:space="preserve">
     <value>Senha</value>
   </data>
-  <data name="PasswordTextBox.Text" xml:space="preserve">
-    <value>Senha</value>
+  <data name="PatientCPFText.Text" xml:space="preserve">
+    <value>Cpf do Paciente</value>
+  </data>
+  <data name="PatienteCPFText.Text" xml:space="preserve">
+    <value>Cpf do Paciente</value>
+  </data>
+  <data name="PatientEmailText.Text" xml:space="preserve">
+    <value>Email do Paciente</value>
+  </data>
+  <data name="PatientText.Text" xml:space="preserve">
+    <value>Paciente</value>
+  </data>
+  <data name="PriorityHighText.Text" xml:space="preserve">
+    <value>Alta</value>
+  </data>
+  <data name="PriorityNormalText.Text" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="PriorityText.Text" xml:space="preserve">
+    <value>Prioridade</value>
+  </data>
+  <data name="PriorityUrgentText.Text" xml:space="preserve">
+    <value>Urgente</value>
+  </data>
+  <data name="ProcedureDescriptionText.Text" xml:space="preserve">
+    <value>Descrição</value>
+  </data>
+  <data name="ProcedureTitle.Text" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="ProfessionalCPFText.Text" xml:space="preserve">
+    <value>Cpf do profissional</value>
+  </data>
+  <data name="ProfessionalEmailText.Text" xml:space="preserve">
+    <value>Email do Profissional</value>
+  </data>
+  <data name="ProfessionalText.Text" xml:space="preserve">
+    <value>Profissional</value>
   </data>
   <data name="RegistrationPageTitle.Text" xml:space="preserve">
     <value>Registre-se</value>
+  </data>
+  <data name="StartDateText.Text" xml:space="preserve">
+    <value>Data de Início</value>
+  </data>
+  <data name="TypeText.Text" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="YearText.Text" xml:space="preserve">
+    <value>Ano</value>
   </data>
 </root>

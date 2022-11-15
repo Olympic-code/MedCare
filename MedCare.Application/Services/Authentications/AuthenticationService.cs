@@ -1,6 +1,7 @@
 ﻿using MedCare.Application.Exceptions;
 using MedCare.Commons.Entities;
-using MedCare.DB.Services;
+using MedCare.DB.Enums;
+using MedCare.DB.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +13,13 @@ namespace MedCare.Application.Services
     public class AuthenticationService : IAuthenticationService
     {
         #region Attributes and Constructor
-        private IPatientRepository patientRepository;
-        private IProfessionalRepository professionalRepository;
+        private readonly IPatientRepository patientRepository;
+        private readonly IProfessionalRepository professionalRepository;
 
-        public AuthenticationService()
+        public AuthenticationService(EnumDatabaseTypes databaseType)
         {
-            //this.patientRepository = new PatientRepository();
-            //this.professionalRepository = new ProfessionalRepository();
+            this.patientRepository = new PatientRepository(new PatientDatabaseFactory(databaseType));
+            this.professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(databaseType));
         }
         #endregion
 
@@ -37,7 +38,7 @@ namespace MedCare.Application.Services
             {
                 if (patientResult.Password == password)
                 {
-                    return new Tuple<EnumUserType, int>(EnumUserType.PATIENT, patientResult.Id);
+                    return new Tuple<EnumUserType, int>(EnumUserType.PATIENT, patientResult.ID);
                 }
                 else
                 {
@@ -56,7 +57,7 @@ namespace MedCare.Application.Services
             {
                 if (professionalResult.Password == password)
                 {
-                    return new Tuple<EnumUserType, int>(EnumUserType.PROFESSIONAL, professionalResult.Id);
+                    return new Tuple<EnumUserType, int>(EnumUserType.PROFESSIONAL, professionalResult.ID);
                 }
                 else
                 {
@@ -69,7 +70,7 @@ namespace MedCare.Application.Services
         #endregion
 
         #region Validate Registration
-        public Task ValidateRegistration(EnumUserType userType, string name, string cpf, int age, int contactNumber,
+        public Task ValidateRegistration(EnumUserType userType, string name, string cpf, int age, string contactNumber,
             string email, String password, String confirmPassword, string profession, string professionalNumber)
         {
             if (password != confirmPassword)
@@ -88,7 +89,7 @@ namespace MedCare.Application.Services
 
         }
 
-        private async Task PatientRegistration(string name, string cpf, int age, int contactNumber, string email, String password)
+        private async Task PatientRegistration(string name, string cpf, int age, string contactNumber, string email, String password)
         {
             Patient patient = new Patient()
             {
@@ -109,7 +110,7 @@ namespace MedCare.Application.Services
             await patientRepository.AddNewPatient(patient);
         }
 
-        private async Task ProfessionalRegistration(string name, string cpf, int age, int contactNumber, string email,
+        private async Task ProfessionalRegistration(string name, string cpf, int age, string contactNumber, string email,
             String password, string profession, string professionalNumber)
         {
             Professional professional = new Professional()

@@ -58,7 +58,7 @@
                                Margin="50"
                                FontWeight="Bold"/>
 
-                    <TextBlock x:Uid="EmailTextBlock"
+                    <TextBlock x:Uid="EmailText"
                                Grid.Row="1"
                                FontSize="25"
                                Margin="50 0 0 5"/>
@@ -74,7 +74,7 @@
                              BorderBrush="{ThemeResource ColorPrimary}"
                              Background="Transparent" />
 
-                    <TextBlock x:Uid="PasswordTextBlock"
+                    <TextBlock x:Uid="PasswordText"
                                Grid.Row="3"
                                FontSize="25"
                                Margin="50 0 0 5"/>
@@ -96,7 +96,7 @@
                                Foreground="Red"
                                Visibility="{x:Bind ViewModel.ErrorMessageIsVisible, Converter={StaticResource MessageErrorVisibilityConverter}}"/>
 
-                    <Button x:Uid="LoginButton"
+                    <Button x:Uid="LoginText"
                             Grid.Row="6"
                             Margin="50 0 0 0"
                             Padding="40 10 40 10"
