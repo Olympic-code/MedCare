@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace MedCare.Application.PopUps.AuthenticationService
+namespace MedCare.Application.Services
 {
     public interface IAuthenticationService
     {

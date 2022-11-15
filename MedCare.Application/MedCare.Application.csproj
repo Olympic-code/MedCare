@@ -122,11 +122,13 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Enums\MedicalProceduresViewState.cs" />
     <Compile Include="Enums\SessionType.cs" />
+    <Compile Include="Converters\MessageErrorVisibilityConverter.cs" />
     <Compile Include="Exceptions\IncorrectPasswordException.cs" />
     <Compile Include="Exceptions\NotFoundUserException.cs" />
     <Compile Include="Exceptions\PasswordsAreNotEqualsException.cs" />
     <Compile Include="Exceptions\SessionHasAlreadyBeenInitialized.cs" />
     <Compile Include="Exceptions\UserAlreadyExistsException.cs" />
+    <Compile Include="Services\Controls\IScreenControl.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -147,6 +149,14 @@
     <Compile Include="Views\MedicalProceduresView.xaml.cs">
       <DependentUpon>MedicalProceduresView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\Controls\ScreenControl.cs" />
+    <Compile Include="Services\Authentications\AuthenticationService.cs" />
+    <Compile Include="Services\Authentications\IAuthenticationService.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RegistrationView.xaml.cs">
       <DependentUpon>RegistrationView.xaml</DependentUpon>
     </Compile>
@@ -159,6 +169,7 @@
   <ItemGroup>
     <Content Include="Assets\AddIcon.png" />
     <Content Include="Assets\Health_Icon.png" />
+    <Content Include="Assets\Images\equipe-medica.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -186,6 +197,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MedicalProceduresView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ColorsKey.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

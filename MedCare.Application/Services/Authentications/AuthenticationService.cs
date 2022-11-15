@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MedCare.Application.PopUps.AuthenticationService
+namespace MedCare.Application.Services
 {
     public class AuthenticationService : IAuthenticationService
     {
