@@ -4,18 +4,19 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
-  IgnorableNamespaces="uap mp">
+  xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio"
+  IgnorableNamespaces="uap mp genTemplate">
 
   <Identity
-    Name="4055915c-700b-4208-a37e-849b65527452"
-    Publisher="CN=crist"
+    Name="11D52CD4-9928-47EA-B528-96DCE967336D"
+    Publisher="CN=Bone"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="4055915c-700b-4208-a37e-849b65527452" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="11D52CD4-9928-47EA-B528-96DCE967336D" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>MedCare.Application</DisplayName>
-    <PublisherDisplayName>crist</PublisherDisplayName>
+    <PublisherDisplayName>Bone</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -32,18 +33,30 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="MedCare.Application.App">
       <uap:VisualElements
-        DisplayName="MedCare.Application"
+        DisplayName="ms-resource:AppDisplayName"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="MedCare.Application"
+        Description="ms-resource:AppDescription"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
       </uap:VisualElements>
+
+      <Extensions>
+      </Extensions>
     </Application>
   </Applications>
 
   <Capabilities>
     <Capability Name="internetClient" />
   </Capabilities>
+
+  <genTemplate:Metadata>
+    <genTemplate:Item Name="generator" Value="Windows Template Studio"/>
+    <genTemplate:Item Name="wizardVersion" Version="v4.1.21179.1" />
+    <genTemplate:Item Name="templatesVersion" Version="v4.1.21179.1" />
+    <genTemplate:Item Name="projectType" Value="TabbedNav" />
+    <genTemplate:Item Name="framework" Value="CodeBehind" />
+    <genTemplate:Item Name="platform" Value="Uwp" />
+  </genTemplate:Metadata>
 </Package>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MedCare.Commons": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}

@@ -2,15 +2,19 @@
     x:Class="MedCare.Application.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MedCare.Application">
+    >
 
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles/RegistrationStyles.xaml" />
-                <ResourceDictionary Source="Themes/ColorsKey.xaml" />
+                <XamlControlsResources  xmlns="using:Microsoft.UI.Xaml.Controls" />
+                <ResourceDictionary Source="/Styles/_Colors.xaml" />
+                <ResourceDictionary Source="/Styles/_FontSizes.xaml" />
+                <ResourceDictionary Source="/Styles/_Thickness.xaml" />
+
+                <ResourceDictionary Source="/Styles/TextBlock.xaml" />
+                <ResourceDictionary Source="/Styles/Page.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
-
 </Application>
