@@ -47,6 +47,7 @@
                  Height="40"
                  Text="{x:Bind Procedure_Title, Mode=TwoWay}"
                  Style="{StaticResource InformationsTextBoxStyle}"
+                 Background="Transparent"
                  BorderBrush="Black"
                  BorderThickness="0,0,0,1" />
         <TextBox x:Uid="ProfessionalEmailText"
@@ -58,6 +59,7 @@
                  Height="40"
                  Text="{x:Bind ProfessionalEmail, Mode=TwoWay}"
                  Style="{StaticResource InformationsTextBoxStyle}"
+                 Background="Transparent"
                  BorderBrush="Black"
                  BorderThickness="0,0,0,1" />
         <TextBox x:Uid="PatientEmailText"
@@ -69,6 +71,7 @@
                  Height="40"
                  Text="{x:Bind PatientEmail, Mode=TwoWay}"
                  Style="{StaticResource InformationsTextBoxStyle}"
+                 Background="Transparent"                
                  BorderBrush="Black"
                  BorderThickness="0,0,0,1" />
         <TextBox x:Uid="DescriptionText"
@@ -81,6 +84,7 @@
                  Height="40"
                  Text="{x:Bind ProcedureDescription, Mode=TwoWay}"
                  Style="{StaticResource InformationsTextBoxStyle}"
+                 Background="Transparent"              
                  BorderBrush="Black"
                  BorderThickness="0,0,0,1" />
         <CalendarDatePicker CornerRadius="10"

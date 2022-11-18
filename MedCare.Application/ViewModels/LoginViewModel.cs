@@ -69,7 +69,7 @@ namespace MedCare.Application.ViewModels
         public LoginViewModel()
         {
             screenControl = new ScreenControl();
-            authenticationService = new AuthenticationService();
+            authenticationService = new AuthenticationService(DB.Enums.EnumDatabaseTypes.ForImplementation);
         }
 
         public async void ExecuteLoginCommand()

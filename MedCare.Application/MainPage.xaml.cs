@@ -1,4 +1,5 @@
-﻿using MedCare.Commons.Entities;
+﻿using MedCare.Application.Views;
+using MedCare.Commons.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,11 +27,14 @@ namespace MedCare.Application
         public MainPage()
         {
             this.InitializeComponent();
+            ProceduresView.Content = new MedicalProceduresView();
+            ScheduleView.Content = new ScheduleView();
+            TaskView.Content = new TaskView();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var userInformations = (Tuple<EnumUserType, int>)e.Parameter;
+            //var userInformations = (Tuple<EnumUserType, int>)e.Parameter;
             //Call the other pages into mainPage frame.
         }
     }
