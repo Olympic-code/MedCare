@@ -60,6 +60,11 @@ namespace MedCare.Application.Usercontrols
         }
 
         #region methods
+
+        protected override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+        }
         private void AddNewAppoimentBtn_Click(object sender, RoutedEventArgs e)
         {
             ProfessionalRepository professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForImplementation));

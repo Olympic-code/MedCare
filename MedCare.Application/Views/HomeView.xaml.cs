@@ -1,6 +1,4 @@
-﻿using MedCare.Application.ViewModels;
-using MedCare.DB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,13 +20,11 @@ namespace MedCare.Application.Views
     /// <summary>
     /// Uma página vazia que pode ser usada isoladamente ou navegada dentro de um Quadro.
     /// </summary>
-    public sealed partial class LoginView : Page
+    public sealed partial class HomeView : Page
     {
-        public LoginViewModel ViewModel => (LoginViewModel)DataContext;
-        public LoginView()
+        public HomeView()
         {
             this.InitializeComponent();
-            DataContext = new LoginViewModel();
         }
     }
 }

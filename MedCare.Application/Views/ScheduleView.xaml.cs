@@ -1,6 +1,4 @@
-﻿using MedCare.Application.ViewModels;
-using MedCare.DB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,20 +13,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// O modelo de item de Página em Branco está documentado em https://go.microsoft.com/fwlink/?LinkId=234238
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace MedCare.Application.Views
 {
     /// <summary>
-    /// Uma página vazia que pode ser usada isoladamente ou navegada dentro de um Quadro.
+    /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class LoginView : Page
+    public sealed partial class ScheduleView : Page
     {
-        public LoginViewModel ViewModel => (LoginViewModel)DataContext;
-        public LoginView()
+        public ScheduleView()
         {
             this.InitializeComponent();
-            DataContext = new LoginViewModel();
         }
     }
 }
