@@ -36,7 +36,7 @@
                            FontWeight="Bold"
                            HorizontalAlignment="Center"/>
 
-                <Button Background="#3e6574"
+                <Button Background="{ThemeResource ColorBasic3}"
                         Content="Criar conta"
                         FontSize="21"
                         CornerRadius="30"
