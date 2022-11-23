@@ -1,4 +1,5 @@
-﻿using MedCare.Commons.Entities;
+﻿using MedCare.Application.Views;
+using MedCare.Commons.Entities;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -16,7 +17,13 @@ namespace MedCare.Application.Services
         public void NavigateToLoginView()
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(Views.LoginView));
+            rootFrame.Navigate(typeof(LoginView));
+        }
+
+        public void NavigateToRegistrationView()
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(RegistrationView));
         }
     }
 }

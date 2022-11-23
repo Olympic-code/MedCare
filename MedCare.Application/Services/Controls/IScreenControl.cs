@@ -7,5 +7,6 @@ namespace MedCare.Application.Services
     {
         void NavigateToMainPage(Tuple<EnumUserType, int> userInfomation);
         void NavigateToLoginView();
+        void NavigateToRegistrationView();
     }
 }

@@ -30,12 +30,5 @@ namespace MedCare.Application.Views
             this.InitializeComponent();
             DataContext = new LoginViewModel();
         }
-
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-
-            
-        }
     }
 }

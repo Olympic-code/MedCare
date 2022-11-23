@@ -157,9 +157,34 @@
                 Background="#3e6574"
                 Width="60"
                 Margin="80,0,80,0"
-                Height="35">
+                Height="35"
+                Click="{x:Bind ViewModel.Register}">
             <TextBlock x:Uid="ButtonSendText"/>
         </Button>
-        
+
+        <Button Grid.Row="2"
+                CornerRadius="10"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Bottom"
+                Background="{ThemeResource ColorPrimary}"
+                Width="60"
+                Margin="80,0,80,0"
+                Height="35"
+                Click="{x:Bind ViewModel.Register}">
+            <TextBlock x:Uid="ButtonSendText"/>
+        </Button>
+
+        <Button Grid.Row="2"
+                CornerRadius="40"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Background="White"
+                Padding="0"
+                Width="30"
+                Height="30"
+                Click="{x:Bind ViewModel.OpenLoginScreen}">
+            <Image Source="../Assets/Images/left-arrow.png"/>
+        </Button>
+
     </Grid>
 </Page>

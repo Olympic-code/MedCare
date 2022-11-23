@@ -27,6 +27,7 @@ namespace MedCare.Application.Views
         public RegistrationView()
         {
             this.InitializeComponent();
+            DataContext = new RegistrationViewModel();
         }
     }
 }

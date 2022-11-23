@@ -38,6 +38,8 @@ namespace MedCare.Application.Services
             {
                 if (patientResult.Password == password)
                 {
+                    SessionManager.User = patientResult;
+                    SessionManager.SessionType = Enums.SessionType.PATIENT;
                     return new Tuple<EnumUserType, int>(EnumUserType.PATIENT, patientResult.ID);
                 }
                 else
@@ -57,6 +59,8 @@ namespace MedCare.Application.Services
             {
                 if (professionalResult.Password == password)
                 {
+                    SessionManager.User = professionalResult;
+                    SessionManager.SessionType = Enums.SessionType.PROFESSIONAL;
                     return new Tuple<EnumUserType, int>(EnumUserType.PROFESSIONAL, professionalResult.ID);
                 }
                 else
