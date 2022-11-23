@@ -35,7 +35,7 @@ namespace MedCare.Application.Views
         {
             base.OnNavigatedTo(e);
 
-            
+
         }
     }
 }
