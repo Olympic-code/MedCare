@@ -14,7 +14,7 @@
 ## Frameworks:
 	C#
 	UWP
-	MYSQL
+	SQLite
 
 ## Activity divisions:
 	Abi-Albom - front-end developer
