@@ -139,6 +139,7 @@
     <Compile Include="Usercontrols\AddMedicalProcedureControl.xaml.cs">
       <DependentUpon>AddMedicalProcedureControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\MedicalProceduresViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />

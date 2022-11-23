@@ -1,4 +1,5 @@
-﻿using MedCare.Application.ViewModels;
+﻿using MedCare.Application.Enums;
+using MedCare.Application.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,7 +28,11 @@ namespace MedCare.Application.Views
         public MedicalProceduresView()
         {
             this.InitializeComponent();
-            DataContext = new MedicalProceduresViewModel(Enums.MedicalProceduresViewState.EXAM);
+        }
+
+        public MedicalProceduresView(MedicalProceduresViewState typeFrame)
+        {
+            DataContext = new MedicalProceduresViewModel(typeFrame);
         }
 
         private void AddNewAppoimentBtn_Click(object sender, RoutedEventArgs e)

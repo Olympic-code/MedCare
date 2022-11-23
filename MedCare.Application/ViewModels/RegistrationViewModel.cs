@@ -28,9 +28,9 @@ namespace MedCare.Application.ViewModels
         public UIInformationPopUp InformationPopUp { get; set; }
         public RelayCommand RegisterCommand { get; set; }
 
-        public RegistrationViewModel()
+        public RegistrationViewModel(IScreenControl screenControl)
         {
-            _screenControl = new ScreenControl();
+            _screenControl = screenControl;
             RegisterCommand = new RelayCommand(Register);
             InformationPopUp = new UIInformationPopUp(OpenLoginScreen) { ScreenName = "Registration" };
         }

@@ -271,10 +271,17 @@
         </PivotItem>
         <PivotItem>
             <PivotItem.Header>
-                <TextBlock Text="Procedimentos"
+                <TextBlock Text="Consultas"
                            Foreground="Black" />
             </PivotItem.Header>
-            <Frame x:Name="ProceduresView" />
+            <Frame x:Name="AppointmentView" />
+        </PivotItem>
+        <PivotItem>
+            <PivotItem.Header>
+                <TextBlock Text="Exames"
+                           Foreground="Black" />
+            </PivotItem.Header>
+            <Frame x:Name="ExamsView" />
         </PivotItem>
         <PivotItem>
             <PivotItem.Header>

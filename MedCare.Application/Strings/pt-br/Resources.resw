@@ -228,6 +228,9 @@
   <data name="RegistrationPageTitle.Text" xml:space="preserve">
     <value>Registre-se</value>
   </data>
+  <data name="SeeDetailsText.Text" xml:space="preserve">
+    <value>Ver detalhes</value>
+  </data>
   <data name="StartDateText.Text" xml:space="preserve">
     <value>Data de Início</value>
   </data>

@@ -1,4 +1,5 @@
 ﻿using MedCare.Application.Views;
+using MedCare.DB;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,6 +32,7 @@ namespace MedCare.Application
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            DatabasesConfiguration.RunInitialConfiguration();
         }
 
         /// <summary>

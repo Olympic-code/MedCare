@@ -1,4 +1,5 @@
-﻿using MedCare.Application.Views;
+﻿using MedCare.Application.Enums;
+using MedCare.Application.Views;
 using MedCare.Commons.Entities;
 using System;
 using System.Collections.Generic;
@@ -44,7 +45,8 @@ namespace MedCare.Application
 
 
             this.InitializeComponent();
-            ProceduresView.Content = new MedicalProceduresView();
+            AppointmentView.Content = new MedicalProceduresView(MedicalProceduresViewState.APPOIMENT);
+            ExamsView.Content = new MedicalProceduresView(MedicalProceduresViewState.EXAM);
             ScheduleView.Content = new ScheduleView();
             TaskView.Content = new TaskView();
             HomeView.Content = new HomeView();

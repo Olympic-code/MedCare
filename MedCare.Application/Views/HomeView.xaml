@@ -55,14 +55,14 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
             </Grid>
-            <Button
+            <Button Click="{x:Bind ViewModel.OpenAppointmentsView}"
                 Grid.Row="3"
                 CornerRadius="10"
                 Margin="200,0,200,0"
                 Background="#3e6574"
                 Height="30" 
                 HorizontalAlignment="Stretch">
-                <TextBlock x:Uid="AppointmentsSeeDetails"/>
+                <TextBlock x:Uid="SeeDetailsText"/>
             </Button>
         </Grid>
 
@@ -109,14 +109,14 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
             </Grid>
-            <Button
+            <Button Click="{x:Bind ViewModel.OpenExamsView}"
                 Grid.Row="3"
                 CornerRadius="10"
                 Margin="200,0,200,0"
                 Background="#3e6574"
                 Height="30" 
                 HorizontalAlignment="Stretch">
-                <TextBlock x:Uid="ExamsSeeDetails"/>
+                <TextBlock x:Uid="SeeDetailsText"/>
             </Button>
         </Grid>
 
@@ -152,6 +152,9 @@
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
+                <Button>
+                    
+                </Button>
                 <Grid x:Name="TasksCanceledSubgrid"
                       Grid.Row="0"
                       Background="#3e6574" 
