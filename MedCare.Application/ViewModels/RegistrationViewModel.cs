@@ -1,5 +1,6 @@
 ﻿using MedCare.Application.Commands;
 using MedCare.Application.PopUps;
+using MedCare.Application.Services;
 using MedCare.Commons.Entities;
 using MedCare.DB.Enums;
 using MedCare.DB.Repositories;
@@ -13,6 +14,8 @@ namespace MedCare.Application.ViewModels
 {
     public class RegistrationViewModel
     {
+        private readonly IScreenControl _screenControl;
+
         public string Name { get; set; }
         public string CPF { get; set; }
         public string Age { get; set; }
@@ -27,6 +30,7 @@ namespace MedCare.Application.ViewModels
 
         public RegistrationViewModel()
         {
+            _screenControl = new ScreenControl();
             RegisterCommand = new RelayCommand(Register);
             InformationPopUp = new UIInformationPopUp(OpenLoginScreen) { ScreenName = "Registration" };
         }
@@ -77,7 +81,7 @@ namespace MedCare.Application.ViewModels
 
         public void OpenLoginScreen()
         {
-
+            _screenControl.NavigateToLoginView();
         }
     }
 }

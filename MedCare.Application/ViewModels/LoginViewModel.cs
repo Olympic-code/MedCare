@@ -1,13 +1,8 @@
 ﻿using MedCare.Application.Services;
 using MedCare.Application.ViewModels.Base;
 using MedCare.Commons.Entities;
+using MedCare.DB.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace MedCare.Application.ViewModels
 {
@@ -69,7 +64,7 @@ namespace MedCare.Application.ViewModels
         public LoginViewModel()
         {
             screenControl = new ScreenControl();
-            authenticationService = new AuthenticationService(DB.Enums.EnumDatabaseTypes.ForImplementation);
+            authenticationService = new AuthenticationService(EnumDatabaseTypes.ForImplementation);
         }
 
         public async void ExecuteLoginCommand()
@@ -86,6 +81,11 @@ namespace MedCare.Application.ViewModels
                 ErrorMessage = ex.Message;
                 ErrorMessageIsVisible = true;
             }
+        }
+
+        public void OpenRegistrationView()
+        {
+            screenControl.NavigateToRegistrationView();
         }
 
     }
