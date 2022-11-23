@@ -1,8 +1,20 @@
 # MedCare ❤️‍🩹
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/79264322/203453279-0d722bbd-6940-438b-b119-070d1541f7b1.jpeg"/>
+</div>
 
+
+## Descrição: 🩹
+	Software focused on the health area, with the objective of improving communication between patient and professional.
+	- Client and professional registration screen.
+	- Screen for scheduling appointments.
+	- Screen verification of exams and consultations.
+	
 ## Frameworks:
-	UWP e/ou WPF
+	C#
+	UWP
+	MYSQL
 
 ## Activity divisions:
 	Abi-Albom - front-end developer
