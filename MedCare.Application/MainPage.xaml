@@ -264,8 +264,10 @@
             <PivotItem.Header>
                 <TextBlock Text="Home"
                            Foreground="Black" />
+                
             </PivotItem.Header>
-            <TextBlock Text="flagged emails go here." />
+
+            <Frame x:Name="HomeView" />
         </PivotItem>
         <PivotItem>
             <PivotItem.Header>
