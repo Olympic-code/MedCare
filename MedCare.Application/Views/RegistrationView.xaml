@@ -93,7 +93,7 @@
                          BorderThickness="0,0,0,2" />
             </Grid>
 
-            <TextBox x:Uid="EmailText"
+            <TextBox x:Uid="EmailTextBox"
                      Grid.Row="2"
                      HorizontalAlignment="Stretch"
                      VerticalAlignment="Center"
@@ -104,22 +104,24 @@
                      Style="{StaticResource InformationsTextBoxStyle}"
                      BorderThickness="0,0,0,2" />
 
-            <TextBox x:Uid="PasswordText"
+            <TextBox x:Uid="PasswordTextBox"
                      Grid.Row="3"
                      HorizontalAlignment="Stretch"
                      VerticalAlignment="Center"
                      Margin="20,0,20,0"
                      Height="40"
                      CornerRadius="5"
+                     Text="{x:Bind ViewModel.Password, Mode=TwoWay}"
                      Style="{StaticResource InformationsTextBoxStyle}"
                      BorderThickness="0,0,0,2" />
 
-            <TextBox x:Uid="PasswordConfirmText"
+            <TextBox x:Uid="PasswordConfirmTextBox"
                      Grid.Row="4"
                      HorizontalAlignment="Stretch"
                      VerticalAlignment="Center"
                      Margin="20,0,20,0"
                      Height="40"
+                     Text="{x:Bind ViewModel.ConfirmPassword, Mode=TwoWay}"
                      Style="{StaticResource InformationsTextBoxStyle}"
                      BorderThickness="0,0,0,2" />
             <Grid x:Name="JobGrid"

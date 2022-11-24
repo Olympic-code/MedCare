@@ -9,7 +9,7 @@ namespace MedCare.Application.ViewModels
     public class LoginViewModel : ViewModelBase
     {
         #region Attributes
-        private readonly IScreenControl screenControl;
+        private readonly IScreenControl _screenControl;
         private readonly IAuthenticationService authenticationService;
         #endregion
 
@@ -61,9 +61,9 @@ namespace MedCare.Application.ViewModels
         }
         #endregion
 
-        public LoginViewModel()
+        public LoginViewModel(IScreenControl screenControl)
         {
-            screenControl = new ScreenControl();
+            _screenControl = screenControl;
             authenticationService = new AuthenticationService(EnumDatabaseTypes.ForImplementation);
         }
 
@@ -73,7 +73,7 @@ namespace MedCare.Application.ViewModels
             try
             {
                 Tuple<EnumUserType, int> userInfomations = await authenticationService.ValidateLogin(UserEmail, Password);
-                screenControl.NavigateToMainPage(userInfomations);
+                _screenControl.NavigateToMainPage(userInfomations);
             }
             catch(Exception ex)
             {
@@ -85,7 +85,7 @@ namespace MedCare.Application.ViewModels
 
         public void OpenRegistrationView()
         {
-            screenControl.NavigateToRegistrationView();
+            _screenControl.NavigateToRegistrationView();
         }
 
     }

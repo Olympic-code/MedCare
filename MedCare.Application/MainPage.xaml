@@ -219,7 +219,7 @@
                                                 </ContentControl.Clip>
                                                 <Grid Background="#c0d3f2" 
                                                       CornerRadius="10" 
-                                                      Width="500"
+                                                      Width="600"
                                                       Margin="0,10,0,0">
                                                     <Grid.RenderTransform>
                                                         <CompositeTransform x:Name="HeaderOffsetTranslateTransform"/>
@@ -271,10 +271,17 @@
         </PivotItem>
         <PivotItem>
             <PivotItem.Header>
-                <TextBlock Text="Procedimentos"
+                <TextBlock Text="Consultas"
                            Foreground="Black" />
             </PivotItem.Header>
-            <Frame x:Name="ProceduresView" />
+            <Frame x:Name="AppointmentView" />
+        </PivotItem>
+        <PivotItem>
+            <PivotItem.Header>
+                <TextBlock Text="Exames"
+                           Foreground="Black" />
+            </PivotItem.Header>
+            <Frame x:Name="ExamsView" />
         </PivotItem>
         <PivotItem>
             <PivotItem.Header>
@@ -285,10 +292,23 @@
         </PivotItem>
         <PivotItem>
             <PivotItem.Header>
-                <TextBlock Text="Tarefas"
+                <TextBlock Text="Mensagens"
                            Foreground="Black" />
             </PivotItem.Header>
-            <Frame x:Name="TaskView"/>
+            <Grid Margin="0,50,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Comming Soon..."
+                           Grid.Row="0"
+                           FontSize="20"
+                           Foreground="Black"
+                           HorizontalAlignment="Center"
+                           FontFamily="Cascadia Mono" />
+                <Image Height="400" Grid.Row="1" Source="/Assets/Images/messages.png" Stretch="Uniform"/>
+            </Grid>
+           
         </PivotItem>
     </Pivot>
 

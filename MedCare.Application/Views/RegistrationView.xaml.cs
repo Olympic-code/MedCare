@@ -1,4 +1,5 @@
-﻿using MedCare.Application.ViewModels;
+﻿using MedCare.Application.Services;
+using MedCare.Application.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,7 +28,7 @@ namespace MedCare.Application.Views
         public RegistrationView()
         {
             this.InitializeComponent();
-            DataContext = new RegistrationViewModel();
+            DataContext = new RegistrationViewModel(new ScreenControl());
         }
     }
 }

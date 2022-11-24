@@ -1,4 +1,5 @@
-﻿using MedCare.Application.ViewModels;
+﻿using MedCare.Application.Enums;
+using MedCare.Application.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,10 +25,45 @@ namespace MedCare.Application.Views
     public sealed partial class MedicalProceduresView : Page
     {
         public MedicalProceduresViewModel ViewModel => (MedicalProceduresViewModel)DataContext;
-        public MedicalProceduresView()
+
+        public MedicalProceduresView(MedicalProceduresViewState typeFrame)
         {
             this.InitializeComponent();
-            DataContext = new MedicalProceduresViewModel(Enums.MedicalProceduresViewState.EXAM);
+            DataContext = new MedicalProceduresViewModel(typeFrame);
+            if (ViewModel.MedicalProceduresNotDone.Count != 0)
+            {
+                NothingTextDone.Visibility = Visibility.Collapsed;
+            }
+            if (ViewModel.MedicalProceduresDone.Count != 0)
+            {
+                NothingTextNotDone.Visibility = Visibility.Collapsed;
+            }
+
+
+            if(typeFrame == MedicalProceduresViewState.APPOIMENT)
+            {
+                AppoimentsFrameTitle.Visibility = Visibility.Visible;
+                ExamsFrameTitle.Visibility = Visibility.Collapsed;
+                
+                CompleteAppoimentsFrameTitle.Visibility = Visibility.Visible;
+                CompleteExamsFrameTitle.Visibility = Visibility.Collapsed;
+
+                IncompleteAppoimentsFrameTitle.Visibility = Visibility.Visible;
+                IncompleteExamsFrameTitle.Visibility = Visibility.Collapsed;
+
+            }
+            else
+            {
+                AppoimentsFrameTitle.Visibility = Visibility.Collapsed;
+                ExamsFrameTitle.Visibility = Visibility.Visible;
+
+                CompleteAppoimentsFrameTitle.Visibility = Visibility.Collapsed;
+                CompleteExamsFrameTitle.Visibility = Visibility.Visible;
+
+                IncompleteAppoimentsFrameTitle.Visibility = Visibility.Collapsed;
+                IncompleteExamsFrameTitle.Visibility = Visibility.Visible;
+
+            }
         }
 
         private void AddNewAppoimentBtn_Click(object sender, RoutedEventArgs e)
@@ -37,5 +73,13 @@ namespace MedCare.Application.Views
             else
                 AddMedicalProcedureControl.Visibility = Visibility.Visible;
         }
+
+        protected override void OnGotFocus(RoutedEventArgs e)
+        {
+            base.OnGotFocus(e);
+            ViewModel.UpdateList();
+        }
+
+       
     }
 }

@@ -1,4 +1,5 @@
-﻿using MedCare.Commons.Entities;
+﻿using MedCare.Application.Enums;
+using MedCare.Commons.Entities;
 using System;
 
 namespace MedCare.Application.Services
@@ -8,5 +9,6 @@ namespace MedCare.Application.Services
         void NavigateToMainPage(Tuple<EnumUserType, int> userInfomation);
         void NavigateToLoginView();
         void NavigateToRegistrationView();
+        void NavigateToMedicalProceduresView(MedicalProceduresViewState typeFrame);
     }
 }

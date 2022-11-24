@@ -11,7 +11,7 @@
         <Setter Property="CornerRadius"
                 Value="5" />
         <Setter Property="BorderBrush"
-                Value="{ThemeResource ColorPrimary}" />
+                Value="Black" />
         <Setter Property="SelectionHighlightColor"
                 Value="{ThemeResource TextControlSelectionHighlightColor}" />
         <Setter Property="BorderThickness"

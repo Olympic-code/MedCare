@@ -44,7 +44,7 @@ namespace MedCare.Application.Services
                 }
                 else
                 {
-                    throw new IncorrectPasswordException("Incorrect password");
+                    throw new IncorrectPasswordException("Email ou senha inválido");
                 }
             }
 
@@ -65,11 +65,11 @@ namespace MedCare.Application.Services
                 }
                 else
                 {
-                    throw new IncorrectPasswordException("Incorrect password");
+                    throw new IncorrectPasswordException("Email ou senha inválido");
                 }
             }
 
-            throw new NotFoundUserException("Not found user");
+            throw new NotFoundUserException("Email ou senha inválido");
         }
         #endregion
 

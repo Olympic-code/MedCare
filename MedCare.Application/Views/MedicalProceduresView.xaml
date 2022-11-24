@@ -203,7 +203,7 @@
           CornerRadius="10"
           Background="#E9EAE0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="90"/>
             <RowDefinition/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
@@ -215,20 +215,20 @@
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" 
                        Text="Title"
+                       x:Name="AppoimentsFrameTitle"
                        x:Uid="AppoimentsFrameTitle"
                        Foreground="Black"
                        VerticalAlignment="Center"
                        FontSize="40"
                        FontFamily="Cascadia Code"
-                       Visibility="{x:Bind ViewModel.AppoimentsFrameTitleVisibility, Mode=TwoWay}"
                        Margin="5,0,0,0"/>
             <TextBlock Grid.Column="0"
+                       x:Name="ExamsFrameTitle"
                        x:Uid="ExamsFrameTitle"
                        Foreground="Black"
                        VerticalAlignment="Center"
                        FontSize="40"
                        FontFamily="Cascadia Code"
-                       Visibility="{x:Bind ViewModel.ExamsFrameTitleVisibility, Mode=TwoWay}"
                        Margin="5,0,0,0" />
             <BitmapIcon 
                 UriSource="/Assets/Health_Icon.png"
@@ -256,25 +256,33 @@
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"
                            Text="Complete"
+                           x:Name="CompleteAppoimentsFrameTitle"
                            x:Uid="CompleteAppoimentsFrameTitle"
                            Foreground="Black"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontSize="25"
                            FontFamily="Cascadia Mono"
-                           Visibility="{x:Bind ViewModel.CompleteAppoimentsFrameTitleVisibility, Mode=TwoWay}"
                            Margin="5,0,0,0" />
                 <TextBlock Grid.Row="0"
+                           x:Name="CompleteExamsFrameTitle"
                            x:Uid="CompleteExamsFrameTitle"
                            Foreground="Black"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            FontSize="25"
                            FontFamily="Cascadia Mono"
-                           Visibility="{x:Bind ViewModel.CompleteExamsFrameTitleVisibility, Mode=TwoWay}"
                            Margin="5,0,0,0" />
+                <TextBlock x:Name="NothingTextNotDone"
+                           Text="Nothing..."
+                           FontFamily="Cascadia Mono"
+                           Grid.Row="1" 
+                           FontSize="20"
+                           Foreground="Black"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
                 <ListView Background="Transparent"
-                          ItemsSource="{x:Bind ViewModel.MedicalProcedures}"
+                          ItemsSource="{x:Bind ViewModel.MedicalProceduresDone}"
                           Grid.Row="1"
                           Height="Auto"
                           Margin="0,0,0,10"
@@ -304,26 +312,33 @@
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"
                            Text="Incomplete"
+                           x:Name="IncompleteAppoimentsFrameTitle"
                            x:Uid="IncompleteAppoimentsFrameTitle"
                            Foreground="Black"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontSize="25"
                            FontFamily="Cascadia Mono"
-                           Visibility="{x:Bind ViewModel.IncompleteAppoimentsFrameTitleVisibility, Mode=TwoWay}"
                            Margin="5,0,0,0" />
                 <TextBlock Grid.Row="0"
+                           x:Name="IncompleteExamsFrameTitle"
                            x:Uid="IncompleteExamsFrameTitle"
                            Foreground="Black"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            FontSize="25"
                            FontFamily="Cascadia Mono"
-                           Visibility="{x:Bind ViewModel.IncompleteExamsFrameTitleVisibility, Mode=TwoWay}"
                            Margin="5,0,0,0" />
-                
+                <TextBlock x:Name="NothingTextDone"
+                           Text="Nothing..."
+                           FontFamily="Cascadia Mono"
+                           Grid.Row="1"
+                           FontSize="20"
+                           Foreground="Black"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" />
                 <ListView Background="Transparent"
-                          ItemsSource="{x:Bind ViewModel.MedicalProcedures}"
+                          ItemsSource="{x:Bind ViewModel.MedicalProceduresNotDone}"
                           Grid.Row="1"
                           Height="Auto"
                           Width="300"

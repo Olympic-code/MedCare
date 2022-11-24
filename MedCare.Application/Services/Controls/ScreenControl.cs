@@ -1,4 +1,5 @@
-﻿using MedCare.Application.Views;
+﻿using MedCare.Application.Enums;
+using MedCare.Application.Views;
 using MedCare.Commons.Entities;
 using System;
 using Windows.UI.Xaml;
@@ -24,6 +25,12 @@ namespace MedCare.Application.Services
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(RegistrationView));
+        }
+
+        public void NavigateToMedicalProceduresView(MedicalProceduresViewState typeFrame)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Content = new MedicalProceduresView(typeFrame);
         }
     }
 }
