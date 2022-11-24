@@ -120,7 +120,7 @@
   <data name="AddText.Text" xml:space="preserve">
     <value>Adicionar</value>
   </data>
-  <data name="AgeText.Text" xml:space="preserve">
+  <data name="AgeText.PlaceholderText" xml:space="preserve">
     <value>Idade</value>
   </data>
   <data name="AppoimentsFrameTitle.Text" xml:space="preserve">
@@ -129,7 +129,7 @@
   <data name="ButtonSendText.Text" xml:space="preserve">
     <value>Enviar</value>
   </data>
-  <data name="CellPhoneText.Text" xml:space="preserve">
+  <data name="CellPhoneText.PlaceholderText" xml:space="preserve">
     <value>Telefone</value>
   </data>
   <data name="CompleteAppoimentsFrameTitle.Text" xml:space="preserve">
@@ -138,7 +138,7 @@
   <data name="CompleteExamsFrameTitle.Text" xml:space="preserve">
     <value>Feitos</value>
   </data>
-  <data name="CPFText.Text" xml:space="preserve">
+  <data name="CPFText.PlaceholderText" xml:space="preserve">
     <value>Cpf</value>
   </data>
   <data name="DayText.Text" xml:space="preserve">
@@ -153,6 +153,9 @@
   <data name="EmailText.Text" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="EmailTextBox.PlaceholderText" xml:space="preserve">
+    <value>Email</value>
+  </data>
   <data name="EndDateText.Text" xml:space="preserve">
     <value>Data Final</value>
   </data>
@@ -165,10 +168,10 @@
   <data name="IncompleteExamsFrameTitle.Text" xml:space="preserve">
     <value>Não Feitos</value>
   </data>
-  <data name="JobCodeText.Text" xml:space="preserve">
+  <data name="JobCodeText.PlaceholderText" xml:space="preserve">
     <value>Código Profissional</value>
   </data>
-  <data name="JobText.Text" xml:space="preserve">
+  <data name="JobText.PlaceholderText" xml:space="preserve">
     <value>Profissão</value>
   </data>
   <data name="LoginText.Content" xml:space="preserve">
@@ -177,13 +180,16 @@
   <data name="MonthText.Text" xml:space="preserve">
     <value>Mês</value>
   </data>
-  <data name="NameText.Text" xml:space="preserve">
+  <data name="NameText.PlaceholderText" xml:space="preserve">
     <value>Nome</value>
   </data>
-  <data name="PasswordConfirmText.Text" xml:space="preserve">
+  <data name="PasswordConfirmTextBox.PlaceholderText" xml:space="preserve">
     <value>Confirme sua senha</value>
   </data>
   <data name="PasswordText.Text" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="PasswordTextBox.PlaceholderText" xml:space="preserve">
     <value>Senha</value>
   </data>
   <data name="PatientCPFText.Text" xml:space="preserve">

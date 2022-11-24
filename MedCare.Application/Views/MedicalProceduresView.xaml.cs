@@ -25,13 +25,13 @@ namespace MedCare.Application.Views
     public sealed partial class MedicalProceduresView : Page
     {
         public MedicalProceduresViewModel ViewModel => (MedicalProceduresViewModel)DataContext;
-        public MedicalProceduresView()
+        public MedicalProceduresView() : this (MedicalProceduresViewState.EXAM)
         {
-            this.InitializeComponent();
         }
 
         public MedicalProceduresView(MedicalProceduresViewState typeFrame)
         {
+            this.InitializeComponent();
             DataContext = new MedicalProceduresViewModel(typeFrame);
         }
 

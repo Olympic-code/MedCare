@@ -93,7 +93,7 @@
                          BorderThickness="0,0,0,2" />
             </Grid>
 
-            <TextBox x:Uid="EmailText"
+            <TextBox x:Uid="EmailTextBox"
                      Grid.Row="2"
                      HorizontalAlignment="Stretch"
                      VerticalAlignment="Center"
@@ -104,7 +104,7 @@
                      Style="{StaticResource InformationsTextBoxStyle}"
                      BorderThickness="0,0,0,2" />
 
-            <TextBox x:Uid="PasswordText"
+            <TextBox x:Uid="PasswordTextBox"
                      Grid.Row="3"
                      HorizontalAlignment="Stretch"
                      VerticalAlignment="Center"
@@ -114,7 +114,7 @@
                      Style="{StaticResource InformationsTextBoxStyle}"
                      BorderThickness="0,0,0,2" />
 
-            <TextBox x:Uid="PasswordConfirmText"
+            <TextBox x:Uid="PasswordConfirmTextBox"
                      Grid.Row="4"
                      HorizontalAlignment="Stretch"
                      VerticalAlignment="Center"
