@@ -2,8 +2,11 @@
 using MedCare.Application.Enums;
 using MedCare.Application.PopUps;
 using MedCare.Commons.Entities;
+using MedCare.DB.Enums;
+using MedCare.DB.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -17,7 +20,8 @@ namespace MedCare.Application.ViewModels
         #region Properties
         public event PropertyChangedEventHandler PropertyChanged;
         public MedicalProceduresViewState State { get; set; }
-        public List<MedicalProcedures> MedicalProcedures { get; set; }
+        public ObservableCollection<MedicalProcedures> MedicalProceduresDone { get; set; } = new ObservableCollection<MedicalProcedures>();
+        public ObservableCollection<MedicalProcedures> MedicalProceduresNotDone { get; set; } = new ObservableCollection<MedicalProcedures>();
         public UIMedicalProcedurePopUp UIMedicalProcedurePopUp { get; set; }
 
         private MedicalProcedures _selectedMedicalProcedure;
@@ -31,72 +35,48 @@ namespace MedCare.Application.ViewModels
                 ListView_SelectionChangedAsync();
             }
         }
+
         #endregion
 
         public MedicalProceduresViewModel(MedicalProceduresViewState state)
         {
             UIMedicalProcedurePopUp = new UIMedicalProcedurePopUp();
-            MedicalProcedures = new List<MedicalProcedures>();
-
-            for (int i = 0; i < 10; i++)
-            {
-                MedicalProcedures.Add(new Commons.Entities.MedicalProcedures() { Title = "Medical " + i, Description = "teste " + i, StartDate = DateTime.Now, EndDate = DateTime.Now });
-            }
-            State = state;
-            UpadateViewElementsVisibility();
+            UpdateList();
         }
+
         #region Methods
         private async Task ListView_SelectionChangedAsync()
         {
            await UIMedicalProcedurePopUp.ShowInformationDialog(SelectedMedicalProcedure);
         }
 
-        public void UpadateViewElementsVisibility()
+        public void UpdateList()
         {
-            if (State == MedicalProceduresViewState.APPOIMENT)
+            if (SessionManager.User != null)
             {
-                SetAllAppoimentsElementsVisible();
-                SetAllExamsElementsCollapsed();
-                return;
+                if (SessionManager.SessionType == SessionType.PATIENT)
+                {
+                    PatientRepository patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForImplementation));
+                    Patient currentPatient = patientRepository.GetPatient((Patient)SessionManager.User).Result;
+                    MedicalProceduresDone = new ObservableCollection<MedicalProcedures>(currentPatient.MedicalAppointments.Where(m => m.Done == true));
+                    MedicalProceduresNotDone = new ObservableCollection<MedicalProcedures>(currentPatient.MedicalAppointments.Where(m => m.Done == false));
+                }
+                else
+                {
+                    ProfessionalRepository professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForImplementation));
+                    Professional currentProfessional = professionalRepository.GetProfessional((Professional)SessionManager.User).Result;
+                    MedicalProceduresDone = new ObservableCollection<MedicalProcedures>(currentProfessional.MedicalAppointments.Where(m => m.Done == true));
+                    MedicalProceduresNotDone = new ObservableCollection<MedicalProcedures>(currentProfessional.MedicalAppointments.Where(m => m.Done == false));
+                }
             }
-            SetAllExamsElementsVisible();
-            SetAllAppoimentsElementsCollapsed();
-        }
-        #endregion
-
-        #region Visibilities
-        public Visibility AppoimentsFrameTitleVisibility { get; set; }
-        public Visibility ExamsFrameTitleVisibility { get; set; }
-        public Visibility CompleteAppoimentsFrameTitleVisibility { get; set; }
-        public Visibility CompleteExamsFrameTitleVisibility { get; set; }
-        public Visibility IncompleteAppoimentsFrameTitleVisibility { get; set; }
-        public Visibility IncompleteExamsFrameTitleVisibility { get; set; }
-
-        private void SetAllExamsElementsCollapsed()
-        {
-            ExamsFrameTitleVisibility = Visibility.Collapsed;
-            CompleteExamsFrameTitleVisibility = Visibility.Collapsed;
-            IncompleteExamsFrameTitleVisibility = Visibility.Collapsed;
-        }
-        private void SetAllExamsElementsVisible()
-        {
-            ExamsFrameTitleVisibility = Visibility.Visible;
-            CompleteExamsFrameTitleVisibility = Visibility.Visible;
-            IncompleteExamsFrameTitleVisibility = Visibility.Visible;
-        }
-
-        private void SetAllAppoimentsElementsVisible()
-        {
-            AppoimentsFrameTitleVisibility = Visibility.Visible;
-            CompleteAppoimentsFrameTitleVisibility = Visibility.Visible;
-            IncompleteAppoimentsFrameTitleVisibility = Visibility.Visible;
-        }
-
-        private void SetAllAppoimentsElementsCollapsed()
-        {
-            AppoimentsFrameTitleVisibility = Visibility.Collapsed;
-            CompleteAppoimentsFrameTitleVisibility = Visibility.Collapsed;
-            IncompleteAppoimentsFrameTitleVisibility = Visibility.Collapsed;
+            //else
+            //{
+            //    for (int i = 0; i < 1; i++)
+            //    {
+            //        MedicalProceduresDone.Add(new Commons.Entities.MedicalProcedures() { Title = "Medical " + i, Description = "teste " + i, StartDate = DateTime.Now, EndDate = DateTime.Now });
+            //        MedicalProceduresNotDone.Add(new Commons.Entities.MedicalProcedures() { Title = "Medical " + i, Description = "teste " + i, StartDate = DateTime.Now, EndDate = DateTime.Now });
+            //    }
+            //}
         }
         #endregion
 

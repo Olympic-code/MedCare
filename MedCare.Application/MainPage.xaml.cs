@@ -33,11 +33,13 @@ namespace MedCare.Application
             // Get the instance of the Title Bar
             var appTitelBar = ApplicationView.GetForCurrentView().TitleBar;
             // Set the color of the Title Bar content
-            appTitelBar.BackgroundColor = Colors.Black;
-            appTitelBar.ForegroundColor = Colors.White;
+
+            Color mainScreenBackground = new Color() { A = 0, B = 224, G = 234, R = 233 };
+            appTitelBar.BackgroundColor = mainScreenBackground;
+            appTitelBar.ForegroundColor = Colors.Black;
             // Set the color of the Title Bar buttons
-            appTitelBar.ButtonBackgroundColor = Colors.Black;
-            appTitelBar.ButtonForegroundColor = Colors.White;
+            appTitelBar.ButtonBackgroundColor = mainScreenBackground;
+            appTitelBar.ButtonForegroundColor = Colors.Black;
 
 
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
@@ -48,7 +50,6 @@ namespace MedCare.Application
             AppointmentView.Content = new MedicalProceduresView(MedicalProceduresViewState.APPOIMENT);
             ExamsView.Content = new MedicalProceduresView(MedicalProceduresViewState.EXAM);
             ScheduleView.Content = new ScheduleView();
-            TaskView.Content = new TaskView();
             HomeView.Content = new HomeView();
         }
 

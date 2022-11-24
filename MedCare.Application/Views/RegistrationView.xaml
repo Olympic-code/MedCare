@@ -111,6 +111,7 @@
                      Margin="20,0,20,0"
                      Height="40"
                      CornerRadius="5"
+                     Text="{x:Bind ViewModel.Password, Mode=TwoWay}"
                      Style="{StaticResource InformationsTextBoxStyle}"
                      BorderThickness="0,0,0,2" />
 
@@ -120,6 +121,7 @@
                      VerticalAlignment="Center"
                      Margin="20,0,20,0"
                      Height="40"
+                     Text="{x:Bind ViewModel.ConfirmPassword, Mode=TwoWay}"
                      Style="{StaticResource InformationsTextBoxStyle}"
                      BorderThickness="0,0,0,2" />
             <Grid x:Name="JobGrid"

@@ -144,7 +144,7 @@
   <data name="DayText.Text" xml:space="preserve">
     <value>Dia</value>
   </data>
-  <data name="DescriptionText.Text" xml:space="preserve">
+  <data name="DecriptionTextBox.PlaceholderText" xml:space="preserve">
     <value>Descrição</value>
   </data>
   <data name="DoneText.Text" xml:space="preserve">
@@ -198,7 +198,7 @@
   <data name="PatienteCPFText.Text" xml:space="preserve">
     <value>Cpf do Paciente</value>
   </data>
-  <data name="PatientEmailText.Text" xml:space="preserve">
+  <data name="PatientEmailTextBox.PlaceholderText" xml:space="preserve">
     <value>Email do Paciente</value>
   </data>
   <data name="PatientText.Text" xml:space="preserve">
@@ -219,13 +219,13 @@
   <data name="ProcedureDescriptionText.Text" xml:space="preserve">
     <value>Descrição</value>
   </data>
-  <data name="ProcedureTitle.Text" xml:space="preserve">
+  <data name="ProcedureTitleTextBox.PlaceholderText" xml:space="preserve">
     <value>Título</value>
   </data>
   <data name="ProfessionalCPFText.Text" xml:space="preserve">
     <value>Cpf do profissional</value>
   </data>
-  <data name="ProfessionalEmailText.Text" xml:space="preserve">
+  <data name="ProfessionalEmailTextBox.PlaceholderText" xml:space="preserve">
     <value>Email do Profissional</value>
   </data>
   <data name="ProfessionalText.Text" xml:space="preserve">

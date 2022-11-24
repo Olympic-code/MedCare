@@ -84,6 +84,16 @@ namespace MedCare.Application.ViewModels
                 OnPropertyChanged(nameof(Password));
             }
         }
+        private string _confirmPassword;
+        public string ConfirmPassword
+        {
+            get => _confirmPassword;
+            set
+            {
+                _confirmPassword = value;
+                OnPropertyChanged(nameof(ConfirmPassword));
+            }
+        }
 
         private string _job;
         public string Job
@@ -146,6 +156,12 @@ namespace MedCare.Application.ViewModels
 
         private void Registerpatient()
         {
+            if (!Password.Equals(ConfirmPassword))
+            {
+                InformationPopUp.showNotSuccessfulMessage("Coloque senhas iguais!");
+                return;
+            }
+
             ProfessionalRepository professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForImplementation));
             Professional newProfessional = new Professional();
             newProfessional.Name = Name;
@@ -165,6 +181,12 @@ namespace MedCare.Application.ViewModels
 
         private void RegisterProfessional()
         {
+            if (!Password.Equals(ConfirmPassword))
+            {
+                InformationPopUp.showNotSuccessfulMessage("Coloque senhas iguais!");
+                return;
+            }
+
             PatientRepository patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForImplementation));
             Patient newPatient = new Patient();
             newPatient.Name = Name;
