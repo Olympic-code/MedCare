@@ -282,7 +282,7 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
                 <ListView Background="Transparent"
-                          ItemsSource="{x:Bind ViewModel.MedicalProceduresDone}"
+                          ItemsSource="{x:Bind ViewModel.MedicalProceduresDone,Mode=TwoWay}"
                           Grid.Row="1"
                           Height="Auto"
                           Margin="0,0,0,10"
@@ -338,7 +338,7 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center" />
                 <ListView Background="Transparent"
-                          ItemsSource="{x:Bind ViewModel.MedicalProceduresNotDone}"
+                          ItemsSource="{x:Bind ViewModel.MedicalProceduresNotDone, Mode=TwoWay}"
                           Grid.Row="1"
                           Height="Auto"
                           Width="300"

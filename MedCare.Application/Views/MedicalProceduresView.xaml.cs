@@ -25,10 +25,11 @@ namespace MedCare.Application.Views
     public sealed partial class MedicalProceduresView : Page
     {
         public MedicalProceduresViewModel ViewModel => (MedicalProceduresViewModel)DataContext;
-
+        public MedicalProceduresViewState TypeFrame { get; set; }
         public MedicalProceduresView(MedicalProceduresViewState typeFrame)
         {
             this.InitializeComponent();
+            TypeFrame = typeFrame;
             DataContext = new MedicalProceduresViewModel(typeFrame);
             if (ViewModel.MedicalProceduresNotDone.Count != 0)
             {
@@ -77,7 +78,7 @@ namespace MedCare.Application.Views
         protected override void OnGotFocus(RoutedEventArgs e)
         {
             base.OnGotFocus(e);
-            ViewModel.UpdateList();
+            DataContext = new MedicalProceduresViewModel(TypeFrame);
         }
 
        

@@ -24,7 +24,7 @@ namespace MedCare.Application.PopUps
         }
         public async Task showSuccessfulMessage()
         {
-            ContentDialog contentDialog = new ContentDialog { Title = $"{ScreenName} Informação".ToUpper(), Content = $"{ScreenName} was successful!", CloseButtonCommand = ExitWindowCommand, CloseButtonText = "Close" };
+            ContentDialog contentDialog = new ContentDialog { Title = $"{ScreenName} Informação".ToUpper(), Content = $"{ScreenName} foi bem sucedida!!", CloseButtonCommand = ExitWindowCommand, CloseButtonText = "Fechar" };
             contentDialog.CornerRadius = cornerRadius;
             contentDialog.Background = new SolidColorBrush(Colors.LightSkyBlue);
 
@@ -33,7 +33,7 @@ namespace MedCare.Application.PopUps
         }
         public async Task showNotSuccessfulMessage()
         {
-            ContentDialog contentDialog = new ContentDialog { Title = $"{ScreenName} Informação".ToUpper(), Content = $"{ScreenName} was not successful!", CloseButtonCommand = ExitWindowCommand, CloseButtonText = "Close" };
+            ContentDialog contentDialog = new ContentDialog { Title = $"{ScreenName} Informação".ToUpper(), Content = $"{ScreenName} não foi bem sucedida!", CloseButtonCommand = ExitWindowCommand, CloseButtonText = "Fechar" };
             contentDialog.CornerRadius = cornerRadius;
             contentDialog.Background = new SolidColorBrush(Colors.IndianRed);
 
@@ -41,7 +41,7 @@ namespace MedCare.Application.PopUps
         }
         public async Task showNotSuccessfulMessage(string message)
         {
-            ContentDialog contentDialog = new ContentDialog { Title = $"{ScreenName} Information".ToUpper(), Content = message, CloseButtonCommand = ExitWindowCommand, CloseButtonText = "Close" };
+            ContentDialog contentDialog = new ContentDialog { Title = $"{ScreenName} Informação".ToUpper(), Content = message, CloseButtonText = "Fechar" };
             contentDialog.CornerRadius = cornerRadius;
             contentDialog.Background = new SolidColorBrush(Colors.IndianRed);
 

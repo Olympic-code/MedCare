@@ -30,5 +30,19 @@ namespace MedCare.Application.Views
             this.InitializeComponent();
             DataContext = new RegistrationViewModel(new ScreenControl());
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (UserTypeComboBox.SelectedIndex == 0)
+            {
+                JobCodeTextBlock.Visibility = Visibility.Collapsed;
+                JobTextBlock.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                JobCodeTextBlock.Visibility = Visibility.Visible;
+                JobTextBlock.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

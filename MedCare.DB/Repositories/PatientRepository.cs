@@ -43,6 +43,7 @@ namespace MedCare.DB.Repositories
                 {
                     List<Patient> allPatients = await GetAllPatients();
                     Patient wantedPatient = (allPatients.Where(p => p.Email.Equals(patient.Email))).First();
+
                     return wantedPatient;
                 }
                 catch (Exception)
@@ -77,7 +78,7 @@ namespace MedCare.DB.Repositories
             {
                 try
                 {
-                    List<Patient> allPatients = await patientDatabase.Patients.ToListAsync<Patient>();
+                    List<Patient> allPatients = await patientDatabase.Patients.Include(p => p.MedicalAppointments).ToListAsync<Patient>();
                     return allPatients;
                 }
                 catch (Exception)
@@ -95,7 +96,16 @@ namespace MedCare.DB.Repositories
                 {
                     Patient wantedPatient = await GetPatient(patient);
                     await RemovePatient(wantedPatient);
-                    wantedPatient.MedicalAppointments.Add(procedure);
+
+                    if (wantedPatient.MedicalAppointments == null)
+                        wantedPatient.MedicalAppointments = new List<MedicalProcedures>();
+
+                    foreach (var currentMedicalProcedure in wantedPatient.MedicalAppointments)
+                    {
+                        currentMedicalProcedure.Id = 0;
+                    }
+
+                    wantedPatient.MedicalAppointments?.Add(procedure);
                     await AddNewPatient(wantedPatient);
                     return true;
                 }
@@ -105,5 +115,30 @@ namespace MedCare.DB.Repositories
                 }
             }
         }
+
+        public async Task<bool> GetAllProcedures(Patient patient, MedicalProcedures procedure)
+        {
+            using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
+            {
+                try
+                {
+                    Patient wantedPatient = await GetPatient(patient);
+                    await RemovePatient(wantedPatient);
+
+                    if (wantedPatient.MedicalAppointments == null)
+                        wantedPatient.MedicalAppointments = new List<MedicalProcedures>();
+
+                    wantedPatient.MedicalAppointments?.Add(procedure);
+                    await AddNewPatient(wantedPatient);
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+
     }
 }
