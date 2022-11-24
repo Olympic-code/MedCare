@@ -100,7 +100,7 @@ namespace MedCare.DB.Repositories
                 {
                     Professional wantedProfessional = await GetProfessional(professional);
                     await RemoveProfessional(wantedProfessional);
-                    wantedProfessional.MedicalAppointments.Add(procedure);
+                    wantedProfessional.MedicalProcedures.Add(procedure);
                     await AddNewProfessional(wantedProfessional);
                     return true;
                 }

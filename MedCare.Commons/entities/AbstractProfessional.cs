@@ -6,7 +6,7 @@ namespace MedCare.Commons.Entities
     {
         public string ProfessionalRegister { get; set; }
         public string ProfessionalType { get; set; }
-        public List<MedicalProcedures> MedicalAppointments { get; set; }
+        public List<MedicalProcedures> MedicalProcedures { get; set; }
         public List<Messages> Messages { get; set; }
     }
 }

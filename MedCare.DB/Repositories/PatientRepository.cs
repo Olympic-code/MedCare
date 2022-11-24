@@ -95,7 +95,7 @@ namespace MedCare.DB.Repositories
                 {
                     Patient wantedPatient = await GetPatient(patient);
                     await RemovePatient(wantedPatient);
-                    wantedPatient.MedicalAppointments.Add(procedure);
+                    wantedPatient.MedicalProcedures.Add(procedure);
                     await AddNewPatient(wantedPatient);
                     return true;
                 }
