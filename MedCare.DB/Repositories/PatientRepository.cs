@@ -17,14 +17,14 @@ namespace MedCare.DB.Repositories
             DatabaseFactory = databaseFactory;
         }
 
-        public async Task<bool> AddNewPatient(Patient newPatient)
+        public bool AddNewPatient(Patient newPatient)
         {
             using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
-                    await patientDatabase.Patients.AddAsync((Patient)newPatient);
-                    await patientDatabase.SaveChangesAsync();
+                     patientDatabase.Patients.Add((Patient)newPatient);
+                     patientDatabase.SaveChanges();
 
                     return true;
                 }
@@ -61,7 +61,7 @@ namespace MedCare.DB.Repositories
                 {
                     Patient wantedPatient = await GetPatient(patient);
                     patientDatabase.Patients.Remove(wantedPatient);
-                    await patientDatabase.SaveChangesAsync();
+                    patientDatabase.SaveChanges();
 
                     return true;
                 }
@@ -106,7 +106,7 @@ namespace MedCare.DB.Repositories
                     }
 
                     wantedPatient.MedicalAppointments?.Add(procedure);
-                    await AddNewPatient(wantedPatient);
+                    AddNewPatient(wantedPatient);
                     return true;
                 }
                 catch (Exception)
@@ -129,7 +129,7 @@ namespace MedCare.DB.Repositories
                         wantedPatient.MedicalAppointments = new List<MedicalProcedures>();
 
                     wantedPatient.MedicalAppointments?.Add(procedure);
-                    await AddNewPatient(wantedPatient);
+                    AddNewPatient(wantedPatient);
                     return true;
                 }
                 catch (Exception)
@@ -138,7 +138,5 @@ namespace MedCare.DB.Repositories
                 }
             }
         }
-
-
     }
 }

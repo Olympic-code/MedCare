@@ -111,7 +111,7 @@ namespace MedCare.Application.Services
                 throw new UserAlreadyExistsException("E-mail linked to an existing account");
             }
 
-            await patientRepository.AddNewPatient(patient);
+            patientRepository.AddNewPatient(patient);
         }
 
         private async Task ProfessionalRegistration(string name, string cpf, int age, string contactNumber, string email,

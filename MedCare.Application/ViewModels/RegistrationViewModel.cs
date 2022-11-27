@@ -149,57 +149,65 @@ namespace MedCare.Application.ViewModels
         public void Register()
         {
             if (RegisterType == 0)
-                RegisterProfessional();
+                RegisterPatient();
             else
-                Registerpatient();
+                RegisterProfessional();
+            
         }
 
-        private void Registerpatient()
+        private async void RegisterProfessional()
         {
             if (!Password.Equals(ConfirmPassword))
             {
-                InformationPopUp.showNotSuccessfulMessage("Coloque senhas iguais!");
+                await InformationPopUp.showNotSuccessfulMessage("Coloque senhas iguais!");
                 return;
             }
 
             ProfessionalRepository professionalRepository = new ProfessionalRepository(new ProfessionalDatabaseFactory(EnumDatabaseTypes.ForImplementation));
-            Professional newProfessional = new Professional();
-            newProfessional.Name = Name;
-            newProfessional.Email = Email;
-            newProfessional.Age = int.Parse(Age);
-            newProfessional.Password = Password;
-            newProfessional.PhoneNumber = CellPhone;
-            newProfessional.ProfessionalRegister = JobCode;
+            Professional newProfessional = new Professional
+            {
+                Name = this.Name,
+                Email = this.Email,
+                Cpf = this.CPF,
+                Age = int.Parse(this.Age),
+                Password = this.Password,
+                PhoneNumber = this.CellPhone,
+                ProfessionalRegister = this.JobCode
+            };
 
             bool wasSuccessful = professionalRepository.AddNewProfessional(newProfessional).Result;
 
             if (wasSuccessful)
-                InformationPopUp.showSuccessfulMessage();
+                await InformationPopUp.showSuccessfulMessage();
             else
-                InformationPopUp.showNotSuccessfulMessage();
+                await InformationPopUp.showNotSuccessfulMessage();
         }
 
-        private void RegisterProfessional()
+        private async void RegisterPatient()
         {
             if (!Password.Equals(ConfirmPassword))
             {
-                InformationPopUp.showNotSuccessfulMessage("Coloque senhas iguais!");
+                await InformationPopUp.showNotSuccessfulMessage("Coloque senhas iguais!");
                 return;
             }
 
             PatientRepository patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForImplementation));
-            Patient newPatient = new Patient();
-            newPatient.Name = Name;
-            newPatient.Email = Email;
-            newPatient.Age = int.Parse(Age);
-            newPatient.Password = Password;
-            newPatient.PhoneNumber = CellPhone;
-            bool wasSuccessful = patientRepository.AddNewPatient(newPatient).Result;
+            Patient newPatient = new Patient
+            {
+                Name = this.Name,
+                Email = this.Email,
+                Cpf = this.CPF,
+                Age = int.Parse(this.Age),
+                Password = this.Password,
+                PhoneNumber = this.CellPhone
+            };
+
+            bool wasSuccessful = patientRepository.AddNewPatient(newPatient);
 
             if (wasSuccessful)
-                InformationPopUp.showSuccessfulMessage();
+                await InformationPopUp.showSuccessfulMessage();
             else
-                InformationPopUp.showNotSuccessfulMessage();
+                await InformationPopUp.showNotSuccessfulMessage();
         }
 
         public void OpenLoginScreen()
