@@ -66,7 +66,7 @@ namespace MedCare.Application.ViewModels
                 if (SessionManager.SessionType == SessionType.PATIENT)
                 {
                     PatientRepository patientRepository = new PatientRepository(new PatientDatabaseFactory(EnumDatabaseTypes.ForImplementation));
-                    Patient currentPatient = patientRepository.GetPatient((Patient)SessionManager.User).Result;
+                    Patient currentPatient = patientRepository.GetPatient((Patient)SessionManager.User);
                     if (currentPatient.MedicalAppointments != null)
                     {
                         MedicalProceduresDone = new ObservableCollection<MedicalProcedures>(currentPatient.MedicalAppointments.Where(m => m.Done == true && m.Type == ProcedureType));

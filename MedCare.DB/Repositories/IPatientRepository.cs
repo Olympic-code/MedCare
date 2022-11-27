@@ -7,8 +7,8 @@ namespace MedCare.DB.Repositories
     public interface IPatientRepository : IRepository
     {
         bool AddNewPatient(Patient newPatient);
-        Task<bool> RemovePatient(Patient patient);
-        Task<Patient> GetPatient(Patient patient);
-        Task<List<Patient>> GetAllPatients();
+        bool RemovePatient(Patient patient);
+        Patient GetPatient(Patient patient);
+        List<Patient> GetAllPatients();
     }
 }

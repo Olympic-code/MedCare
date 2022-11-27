@@ -33,7 +33,7 @@ namespace MedCare.Application.Services
                 Password = password
             };
 
-            Patient patientResult = await patientRepository.GetPatient(patient);
+            Patient patientResult = patientRepository.GetPatient(patient);
             if (patientResult != null)
             {
                 if (patientResult.Password == password)
@@ -93,7 +93,7 @@ namespace MedCare.Application.Services
 
         }
 
-        private async Task PatientRegistration(string name, string cpf, int age, string contactNumber, string email, String password)
+        private Task PatientRegistration(string name, string cpf, int age, string contactNumber, string email, String password)
         {
             Patient patient = new Patient()
             {
@@ -105,13 +105,14 @@ namespace MedCare.Application.Services
                 Password = password
             };
 
-            Patient patientResult = await patientRepository.GetPatient(patient);
+            Patient patientResult = patientRepository.GetPatient(patient);
             if (patientResult != null)
             {
                 throw new UserAlreadyExistsException("E-mail linked to an existing account");
             }
 
             patientRepository.AddNewPatient(patient);
+            return Task.CompletedTask;
         }
 
         private async Task ProfessionalRegistration(string name, string cpf, int age, string contactNumber, string email,

@@ -35,13 +35,13 @@ namespace MedCare.DB.Repositories
             }
         }
 
-        public async Task<Patient> GetPatient(Patient patient)
+        public Patient GetPatient(Patient patient)
         {
             using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
-                    List<Patient> allPatients = await GetAllPatients();
+                    List<Patient> allPatients = GetAllPatients();
                     Patient wantedPatient = (allPatients.Where(p => p.Email.Equals(patient.Email))).First();
 
                     return wantedPatient;
@@ -53,13 +53,13 @@ namespace MedCare.DB.Repositories
             }
         }
 
-        public async Task<bool> RemovePatient(Patient patient)
+        public bool RemovePatient(Patient patient)
         {
             using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
-                    Patient wantedPatient = await GetPatient(patient);
+                    Patient wantedPatient = GetPatient(patient);
                     patientDatabase.Patients.Remove(wantedPatient);
                     patientDatabase.SaveChanges();
 
@@ -72,13 +72,13 @@ namespace MedCare.DB.Repositories
             }
         }
 
-        public async Task<List<Patient>> GetAllPatients()
+        public List<Patient> GetAllPatients()
         {
             using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
-                    List<Patient> allPatients = await patientDatabase.Patients.Include(p => p.MedicalAppointments).ToListAsync<Patient>();
+                    List<Patient> allPatients = patientDatabase.Patients.Include(p => p.MedicalAppointments).ToList<Patient>();
                     return allPatients;
                 }
                 catch (Exception)
@@ -88,14 +88,14 @@ namespace MedCare.DB.Repositories
             }
         }
 
-        public async Task<bool> AddProcedure(Patient patient, MedicalProcedures procedure)
+        public bool AddProcedure(Patient patient, MedicalProcedures procedure)
         {
             using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
-                    Patient wantedPatient = await GetPatient(patient);
-                    await RemovePatient(wantedPatient);
+                    Patient wantedPatient = GetPatient(patient);
+                    RemovePatient(wantedPatient);
 
                     if (wantedPatient.MedicalAppointments == null)
                         wantedPatient.MedicalAppointments = new List<MedicalProcedures>();
@@ -116,14 +116,14 @@ namespace MedCare.DB.Repositories
             }
         }
 
-        public async Task<bool> GetAllProcedures(Patient patient, MedicalProcedures procedure)
+        public bool GetAllProcedures(Patient patient, MedicalProcedures procedure)
         {
             using (PatientDatabase patientDatabase = (PatientDatabase)DatabaseFactory.CreateDatabase())
             {
                 try
                 {
-                    Patient wantedPatient = await GetPatient(patient);
-                    await RemovePatient(wantedPatient);
+                    Patient wantedPatient = GetPatient(patient);
+                    RemovePatient(wantedPatient);
 
                     if (wantedPatient.MedicalAppointments == null)
                         wantedPatient.MedicalAppointments = new List<MedicalProcedures>();

@@ -72,7 +72,7 @@ namespace MedCare.Application.Usercontrols
             //DatabasesConfiguration.RunInitialConfiguration();
             //var listProfessionals = professionalRepository.GetAllProfessionals().Result;
             Professional professional = professionalRepository.GetProfessional(new Professional() { Email = ProfessionalEmail }).Result;
-            Patient patient = patientRepository.GetPatient(new Patient() { Email = PatientEmail }).Result;
+            Patient patient = patientRepository.GetPatient(new Patient() { Email = PatientEmail });
 
             AbstractUser currentUser = SessionManager.User;
 
@@ -104,7 +104,7 @@ namespace MedCare.Application.Usercontrols
             if (SessionManager.SessionType == Enums.SessionType.PROFESSIONAL)
                 showPopUp(professionalRepository.AddProcedure((Professional)currentUser, newMedicalProcedure).Result);
             else
-                showPopUp(patientRepository.AddProcedure((Patient)currentUser, newMedicalProcedure).Result);
+                showPopUp(patientRepository.AddProcedure((Patient)currentUser, newMedicalProcedure));
 
             showPopUp(true);
         }
